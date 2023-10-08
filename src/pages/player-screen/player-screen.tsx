@@ -1,3 +1,5 @@
+import React from 'react';
+
 function PlayerScreen(): React.ReactElement {
   return (
     <div className="player">

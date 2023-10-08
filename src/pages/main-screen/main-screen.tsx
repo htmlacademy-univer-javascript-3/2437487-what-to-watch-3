@@ -13,7 +13,7 @@ function MainScreen({promoFilm, films} : MainScreenProps): React.ReactElement {
     <>
       <section className="film-card">
         <div className="film-card__bg">
-          <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel"/>
+          <img src={promoFilm.background} alt={promoFilm.name}/>
         </div>
 
         <h1 className="visually-hidden">WTW</h1>

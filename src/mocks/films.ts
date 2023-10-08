@@ -5,6 +5,7 @@ export const promoFilm: Film = {
   poster: 'img/the-grand-budapest-hotel-poster.jpg',
   releaseYear: 2014,
   genre: 'Drama',
+  background: 'img/bg-the-grand-budapest-hotel.jpg',
 };
 
 export const films: Film[] = [

@@ -8,7 +8,7 @@ function AddReviewScreen(): React.ReactElement {
     <section className="film-card film-card--full">
       <div className="film-card__header">
         <div className="film-card__bg">
-          <img src="img/bg-the-grand-budapest-hotel.jpg" alt={promoFilm.name}/>  # TODO: img src should be promoFilm.bg
+          <img src={promoFilm.background} alt={promoFilm.name}/>
         </div>
 
         <h1 className="visually-hidden">WTW</h1>

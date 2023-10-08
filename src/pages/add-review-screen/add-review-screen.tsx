@@ -2,6 +2,7 @@ import React from 'react';
 import {promoFilm} from '../../mocks/films.ts';
 import Logo from '../../components/logo/logo.tsx';
 import ReviewForm from '../../components/review-form/review-form.tsx';
+import UserBlock from '../../components/user-block/user-block.tsx';
 
 function AddReviewScreen(): React.ReactElement {
   return (
@@ -27,16 +28,7 @@ function AddReviewScreen(): React.ReactElement {
             </ul>
           </nav>
 
-          <ul className="user-block">
-            <li className="user-block__item">
-              <div className="user-block__avatar">
-                <img src="img/avatar.jpg" alt="User avatar" width="63" height="63"/>
-              </div>
-            </li>
-            <li className="user-block__item">
-              <a className="user-block__link">Sign out</a>
-            </li>
-          </ul>
+          <UserBlock />
         </header>
 
         <div className="film-card__poster film-card__poster--small">

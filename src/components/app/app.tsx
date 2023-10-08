@@ -1,0 +1,12 @@
+import MainScreen, {MainScreenProps} from '../../pages/main-screen/main-screen.tsx';
+import React from 'react';
+
+type AppProps = MainScreenProps;
+
+function App(props: AppProps): React.ReactElement {
+  return (
+    <MainScreen {...props}/>
+  );
+}
+
+export default App;

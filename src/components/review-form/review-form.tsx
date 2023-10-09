@@ -1,6 +1,4 @@
-import React from 'react';
-
-export function ReviewForm(): React.ReactElement {
+export function ReviewForm() {
   return (
     <div className="add-review">
       <form action="#" className="add-review__form">

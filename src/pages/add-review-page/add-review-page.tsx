@@ -1,10 +1,10 @@
-import React from 'react';
-import {promoFilm} from '../../mocks/films.ts';
-import {Logo} from '../../components/logo/logo.tsx';
-import {ReviewForm} from '../../components/review-form/review-form.tsx';
-import {UserBlock} from '../../components/user-block/user-block.tsx';
+import {promoFilm} from 'mocks/films.ts';
 
-export function AddReviewScreen(): React.ReactElement {
+import {ReviewForm} from 'components/review-form/review-form.tsx';
+import {UserBlock} from 'components/user-block/user-block.tsx';
+import {Logo} from 'components/logo/logo.tsx';
+
+export function AddReviewPage() {
   return (
     <section className="film-card film-card--full">
       <div className="film-card__header">

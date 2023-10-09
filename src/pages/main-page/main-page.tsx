@@ -1,15 +1,14 @@
-import React from 'react';
-import {Film} from '../../types/film.ts';
-import {FilmList} from '../../components/film-list/film-list.tsx';
-import {Logo} from '../../components/logo/logo.tsx';
-import {UserBlock} from '../../components/user-block/user-block.tsx';
+import {Film} from 'typings/film.ts';
+import {FilmList} from 'components/film-list/film-list.tsx';
+import {Logo} from 'components/logo/logo.tsx';
+import {UserBlock} from 'components/user-block/user-block.tsx';
 
-export type MainScreenProps = {
+export type MainPageProps = {
   promoFilm: Film;
   films: Film[];
 }
 
-export function MainScreen({promoFilm, films} : MainScreenProps): React.ReactElement {
+export function MainPage({promoFilm, films} : MainPageProps) {
   return (
     <>
       <section className="film-card">

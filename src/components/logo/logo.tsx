@@ -1,6 +1,4 @@
-import React from 'react';
-
-export function Logo(): React.ReactElement {
+export function Logo() {
   return (
     <div className="logo">
       <a className="logo__link">

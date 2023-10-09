@@ -1,6 +1,4 @@
-import React from 'react';
-
-export function UserBlock(): React.ReactElement {
+export function UserBlock() {
   return (
     <ul className="user-block">
       <li className="user-block__item">

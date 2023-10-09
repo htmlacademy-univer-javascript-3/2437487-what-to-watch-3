@@ -1,7 +1,6 @@
-import {Logo} from '../../components/logo/logo.tsx';
-import React from 'react';
+import {Logo} from 'components/logo/logo.tsx';
 
-export function SignInErrorScreen(): React.ReactElement {
+export function SignInErrorPage() {
   return (
     <div className="user-page">
       <header className="page-header user-page__head">

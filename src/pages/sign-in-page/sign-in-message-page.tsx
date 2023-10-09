@@ -1,16 +1,19 @@
-import {Logo} from '../../components/logo/logo.tsx';
-import React from 'react';
+import {Logo} from 'components/logo/logo.tsx';
 
-export function SignInScreen(): React.ReactElement {
+export function SignInMessagePage() {
   return (
     <div className="user-page">
       <header className="page-header user-page__head">
         <Logo />
+
         <h1 className="page-title user-page__title">Sign in</h1>
       </header>
 
       <div className="sign-in user-page__content">
         <form action="#" className="sign-in__form">
+          <div className="sign-in__message">
+            <p>We can’t recognize this email and password combination. Please try again.</p>
+          </div>
           <div className="sign-in__fields">
             <div className="sign-in__field">
               <input className="sign-in__input" type="email" placeholder="Email address" name="user-email" id="user-email"/>
@@ -29,6 +32,7 @@ export function SignInScreen(): React.ReactElement {
 
       <footer className="page-footer">
         <Logo />
+
         <div className="copyright">
           <p>© 2019 What to watch Ltd.</p>
         </div>

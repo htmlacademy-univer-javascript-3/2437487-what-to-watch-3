@@ -1,4 +1,4 @@
-import {Film} from '../types/film.ts';
+import {Film} from 'typings/film';
 
 export const promoFilm: Film = {
   name: 'The Grand Budapest Hotel',

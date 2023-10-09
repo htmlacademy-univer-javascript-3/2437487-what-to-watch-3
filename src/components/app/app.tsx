@@ -7,6 +7,7 @@ import {PlayerPage} from '@pages/player-page/player-page.tsx';
 import {AddReviewPage} from '@pages/add-review-page/add-review-page.tsx';
 import {NotFoundPage} from '@pages/not-found-page/not-found-page.tsx';
 import {PrivateRoute} from '@components/private-route/private-route.tsx';
+// import {AppRoute} from 'types/app-route.ts';
 
 type AppProps = MainPageProps;
 
@@ -29,6 +30,7 @@ export function App(props: AppProps) {
             <Route path='review' element={<AddReviewPage/>}/>
           </Route>
           <Route path='player/:id' element={<PlayerPage/>}/>
+          <Route path='error404' element={<NotFoundPage/>}/>
           <Route path='*' element={<NotFoundPage/>}/>
         </Route>
       </Routes>

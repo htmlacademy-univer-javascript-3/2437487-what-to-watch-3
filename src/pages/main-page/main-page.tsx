@@ -1,7 +1,7 @@
-import {Film} from 'typings/film.ts';
-import {FilmsList} from 'components/films-list/films-list.tsx';
-import {Logo} from 'components/logo/logo.tsx';
-import {UserBlock} from 'components/user-block/user-block.tsx';
+import {Film} from '@typings/film.ts';
+import {FilmsList} from '@components/films-list/films-list.tsx';
+import {Logo} from '@components/logo/logo.tsx';
+import {UserBlock} from '@components/user-block/user-block.tsx';
 
 export type MainPageProps = {
   promoFilm: Film;
@@ -19,7 +19,7 @@ export function MainPage({promoFilm, films} : MainPageProps) {
         <h1 className="visually-hidden">WTW</h1>
 
         <header className="page-header film-card__head">
-          <Logo />
+          <Logo isLight={false}/>
 
           <UserBlock />
         </header>
@@ -102,7 +102,7 @@ export function MainPage({promoFilm, films} : MainPageProps) {
         </section>
 
         <footer className="page-footer">
-          <Logo />
+          <Logo isLight/>
 
           <div className="copyright">
             <p>© 2019 What to watch Ltd.</p>

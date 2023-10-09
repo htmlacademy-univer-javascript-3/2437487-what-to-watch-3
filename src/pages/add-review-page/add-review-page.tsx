@@ -1,8 +1,7 @@
-import {promoFilm} from 'mocks/films.ts';
-
-import {ReviewForm} from 'components/review-form/review-form.tsx';
-import {UserBlock} from 'components/user-block/user-block.tsx';
-import {Logo} from 'components/logo/logo.tsx';
+import {promoFilm} from '@mocks/films.ts';
+import {ReviewForm} from '@components/review-form/review-form.tsx';
+import {UserBlock} from '@components/user-block/user-block.tsx';
+import {Logo} from '@components/logo/logo.tsx';
 
 export function AddReviewPage() {
   return (
@@ -15,7 +14,7 @@ export function AddReviewPage() {
         <h1 className="visually-hidden">WTW</h1>
 
         <header className="page-header">
-          <Logo />
+          <Logo isLight={false}/>
 
           <nav className="breadcrumbs">
             <ul className="breadcrumbs__list">

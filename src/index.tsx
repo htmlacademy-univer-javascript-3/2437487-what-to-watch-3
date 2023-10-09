@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {App} from 'components/app/app.tsx';
-import {films, promoFilm} from 'mocks/films.ts';
+import {App} from '@components/app/app.tsx';
+import {films, promoFilm} from '@mocks/films.ts';
 
 
 const root = ReactDOM.createRoot(

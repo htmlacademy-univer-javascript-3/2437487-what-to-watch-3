@@ -1,7 +1,7 @@
-import {Logo} from 'components/logo/logo.tsx';
-import {films, promoFilm} from 'mocks/films.ts';
-import {FilmsList} from 'components/films-list/films-list.tsx';
-import {UserBlock} from 'components/user-block/user-block.tsx';
+import {Logo} from '@components/logo/logo.tsx';
+import {films, promoFilm} from '@mocks/films.ts';
+import {FilmsList} from '@components/films-list/films-list.tsx';
+import {UserBlock} from '@components/user-block/user-block.tsx';
 
 export function MoviePage() {
   return (
@@ -15,7 +15,7 @@ export function MoviePage() {
           <h1 className="visually-hidden">WTW</h1>
 
           <header className="page-header film-card__head">
-            <Logo />
+            <Logo isLight={false}/>
 
             <UserBlock />
           </header>
@@ -106,7 +106,7 @@ export function MoviePage() {
         </section>
 
         <footer className="page-footer">
-          <Logo />
+          <Logo isLight/>
 
           <div className="copyright">
             <p>© 2019 What to watch Ltd.</p>

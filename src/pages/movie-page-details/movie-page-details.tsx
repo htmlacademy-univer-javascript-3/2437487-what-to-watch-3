@@ -15,7 +15,7 @@ export function MoviePageDetails() {
           <h1 className="visually-hidden">WTW</h1>
 
           <header className="page-header film-card__head">
-            <Logo />
+            <Logo isLight={false}/>
 
             <UserBlock />
           </header>
@@ -122,7 +122,7 @@ export function MoviePageDetails() {
         </section>
 
         <footer className="page-footer">
-          <Logo />
+          <Logo isLight/>
           <div className="copyright">
             <p>© 2019 What to watch Ltd.</p>
           </div>

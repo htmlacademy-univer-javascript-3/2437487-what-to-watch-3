@@ -1,4 +1,4 @@
-import {Logo} from 'components/logo/logo.tsx';
+import {Logo} from '@components/logo/logo.tsx';
 
 export function SignInPage() {
   const isInvalidEmail = false;
@@ -7,7 +7,7 @@ export function SignInPage() {
   return (
     <div className="user-page">
       <header className="page-header user-page__head">
-        <Logo />
+        <Logo isLight={false}/>
         <h1 className="page-title user-page__title">Sign in</h1>
       </header>
 
@@ -42,7 +42,7 @@ export function SignInPage() {
       </div>
 
       <footer className="page-footer">
-        <Logo />
+        <Logo isLight/>
         <div className="copyright">
           <p>© 2019 What to watch Ltd.</p>
         </div>

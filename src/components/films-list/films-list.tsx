@@ -1,5 +1,5 @@
-import type {Film} from 'typings/film.ts';
-import {FilmCard} from 'components/film-card/film-card.tsx';
+import type {Film} from '@typings/film.ts';
+import {FilmCard} from '@components/film-card/film-card.tsx';
 
 type FilmsListProps = {
   films: Film[];

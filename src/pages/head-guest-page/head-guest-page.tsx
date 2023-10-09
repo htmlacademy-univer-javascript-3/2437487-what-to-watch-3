@@ -1,4 +1,4 @@
-import {Logo} from 'components/logo/logo.tsx';
+import {Logo} from '@components/logo/logo.tsx';
 
 export function HeadGuestPage() {
   return (
@@ -11,7 +11,7 @@ export function HeadGuestPage() {
       <h1 className="visually-hidden">WTW</h1>
 
       <header className="page-header">
-        <Logo />
+        <Logo isLight={false}/>
 
         <div className="user-block">
           <a href="sign-in.html" className="user-block__link">Sign in</a>

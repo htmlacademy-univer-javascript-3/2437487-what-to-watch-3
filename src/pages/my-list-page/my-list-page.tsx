@@ -1,13 +1,13 @@
-import {FilmsList} from 'components/films-list/films-list.tsx';
-import {films} from 'mocks/films.ts';
-import {Logo} from 'components/logo/logo.tsx';
-import {UserBlock} from 'components/user-block/user-block.tsx';
+import {FilmsList} from '@components/films-list/films-list.tsx';
+import {films} from '@mocks/films.ts';
+import {Logo} from '@components/logo/logo.tsx';
+import {UserBlock} from '@components/user-block/user-block.tsx';
 
 export function MyListPage() {
   return (
     <div className="user-page">
       <header className="page-header user-page__head">
-        <Logo />
+        <Logo isLight={false}/>
 
         <h1 className="page-title user-page__title">My list <span className="user-page__film-count">9</span></h1>
         <UserBlock />
@@ -16,11 +16,11 @@ export function MyListPage() {
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-        <FilmsList films={films} />
+        <FilmsList films={films.slice(0, 9)} />
       </section>
 
       <footer className="page-footer">
-        <Logo />
+        <Logo isLight/>
 
         <div className="copyright">
           <p>© 2019 What to watch Ltd.</p>

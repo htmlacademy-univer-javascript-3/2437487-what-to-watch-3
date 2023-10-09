@@ -1,6 +1,6 @@
 import {Logo} from 'components/logo/logo.tsx';
 import {films, promoFilm} from 'mocks/films.ts';
-import {FilmList} from 'components/film-list/film-list.tsx';
+import {FilmsList} from 'components/films-list/films-list.tsx';
 import {UserBlock} from 'components/user-block/user-block.tsx';
 
 export function MoviePage() {
@@ -102,7 +102,7 @@ export function MoviePage() {
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
 
-          <FilmList films={films.slice(1, 4)} />
+          <FilmsList films={films.slice(1, 4)} />
         </section>
 
         <footer className="page-footer">

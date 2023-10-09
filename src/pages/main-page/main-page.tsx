@@ -1,5 +1,5 @@
 import {Film} from 'typings/film.ts';
-import {FilmList} from 'components/film-list/film-list.tsx';
+import {FilmsList} from 'components/films-list/films-list.tsx';
 import {Logo} from 'components/logo/logo.tsx';
 import {UserBlock} from 'components/user-block/user-block.tsx';
 
@@ -94,7 +94,7 @@ export function MainPage({promoFilm, films} : MainPageProps) {
             </li>
           </ul>
 
-          <FilmList films={films}/>
+          <FilmsList films={films}/>
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>

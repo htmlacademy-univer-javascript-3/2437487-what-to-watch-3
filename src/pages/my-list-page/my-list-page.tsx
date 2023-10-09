@@ -1,4 +1,4 @@
-import {FilmList} from 'components/film-list/film-list.tsx';
+import {FilmsList} from 'components/films-list/films-list.tsx';
 import {films} from 'mocks/films.ts';
 import {Logo} from 'components/logo/logo.tsx';
 import {UserBlock} from 'components/user-block/user-block.tsx';
@@ -16,7 +16,7 @@ export function MyListPage() {
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-        <FilmList films={films} />
+        <FilmsList films={films} />
       </section>
 
       <footer className="page-footer">

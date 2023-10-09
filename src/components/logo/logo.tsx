@@ -2,10 +2,10 @@ import {Link} from 'react-router-dom';
 import {AppRoute} from 'types/app-route.ts';
 
 type LogoProps = {
-  isLight: boolean;
+  isLight?: boolean;
 }
 
-export function Logo({isLight}: LogoProps) {
+export function Logo({isLight = false}: LogoProps) {
   return (
     <div className="logo">
       <Link to={AppRoute.Main} className={`logo__link ${isLight ? 'logo__link--light' : ''}`}>

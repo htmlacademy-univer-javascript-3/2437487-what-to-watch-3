@@ -2,7 +2,7 @@ export function PlayerPage() {
   const isPlaying = true;
   return (
     <div className="player">
-      <video src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4" className="player__video" poster="img/player-poster.jpg"></video>
+      <video src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm" className="player__video" poster="img/player-poster.jpg"></video>
 
       <button type="button" className="player__exit">Exit</button>
 

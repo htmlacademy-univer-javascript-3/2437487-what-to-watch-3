@@ -1,8 +1,8 @@
 import {FilmsList} from '@components/films-list/films-list.tsx';
 import {films} from '@mocks/films.ts';
-import {Logo} from '@components/logo/logo.tsx';
 import {Header} from '@components/header/header.tsx';
 import {MyListHeader} from '@components/header/my-list-header/my-list-header.tsx';
+import {Footer} from '@components/footer/footer.tsx';
 
 export function MyListPage() {
   return (
@@ -17,13 +17,7 @@ export function MyListPage() {
         <FilmsList films={films.slice(0, 9)} />
       </section>
 
-      <footer className="page-footer">
-        <Logo isLight/>
-
-        <div className="copyright">
-          <p>© 2019 What to watch Ltd.</p>
-        </div>
-      </footer>
+      <Footer/>
     </div>
   );
 }

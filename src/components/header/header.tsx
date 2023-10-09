@@ -14,7 +14,7 @@ export function Header({children, isUserPage = false, isSignInPage = false}: Rea
       <h1 className="visually-hidden">WTW</h1>
 
       <header className={`page-header ${isUserPage ? 'user-page__head' : ''}`}>
-        <Logo isLight={false}/>
+        <Logo/>
         {children}
         {isSignInPage ? <h1 className="page-title user-page__title">Sign in</h1> : <UserBlock/>}
       </header>

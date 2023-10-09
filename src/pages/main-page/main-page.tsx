@@ -1,7 +1,7 @@
 import {Film} from 'types/film.ts';
 import {FilmsList} from '@components/films-list/films-list.tsx';
-import {Logo} from '@components/logo/logo.tsx';
 import {Header} from '@components/header/header.tsx';
+import {Footer} from '@components/footer/footer.tsx';
 
 export type MainPageProps = {
   promoFilm: Film;
@@ -95,13 +95,7 @@ export function MainPage({promoFilm, films} : MainPageProps) {
           </div>
         </section>
 
-        <footer className="page-footer">
-          <Logo isLight/>
-
-          <div className="copyright">
-            <p>© 2019 What to watch Ltd.</p>
-          </div>
-        </footer>
+        <Footer/>
       </div>
     </>
   );

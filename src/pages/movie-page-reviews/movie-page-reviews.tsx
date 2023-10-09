@@ -1,8 +1,8 @@
-import {Logo} from '@components/logo/logo.tsx';
 import {films, promoFilm} from '@mocks/films.ts';
 import {FilmsList} from '@components/films-list/films-list.tsx';
 import {Header} from '@components/header/header.tsx';
 import {Link} from 'react-router-dom';
+import {Footer} from '@components/footer/footer.tsx';
 
 export function MoviePageReviews() {
   return (
@@ -172,12 +172,7 @@ export function MoviePageReviews() {
           <FilmsList films={films.slice(1, 5)} />
         </section>
 
-        <footer className="page-footer">
-          <Logo isLight/>
-          <div className="copyright">
-            <p>© 2019 What to watch Ltd.</p>
-          </div>
-        </footer>
+        <Footer/>
       </div>
     </>
   );

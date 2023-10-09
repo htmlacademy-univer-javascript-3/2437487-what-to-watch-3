@@ -8,7 +8,7 @@ type FilmsListProps = {
 export function FilmsList({films}: FilmsListProps) {
   return (
     <div className="catalog__films-list">
-      {films.map((film) => <FilmCard key={film.name} {...film}/>)}
+      {films.map((film) => <FilmCard key={film.id} {...film}/>)}
     </div>
   );
 }

@@ -1,5 +1,5 @@
-import {Logo} from '@components/logo/logo.tsx';
 import {Header} from '@components/header/header.tsx';
+import {Footer} from '@components/footer/footer.tsx';
 
 export function SignInPage() {
   const isInvalidEmail = false;
@@ -39,12 +39,7 @@ export function SignInPage() {
         </form>
       </div>
 
-      <footer className="page-footer">
-        <Logo isLight/>
-        <div className="copyright">
-          <p>© 2019 What to watch Ltd.</p>
-        </div>
-      </footer>
+      <Footer/>
     </div>
   );
 }

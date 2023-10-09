@@ -1,7 +1,7 @@
 import React from 'react';
-import Logo from '../../components/logo/logo.tsx';
+import {Logo} from '../../components/logo/logo.tsx';
 
-function SignInMessageScreen(): React.ReactElement {
+export function SignInMessageScreen(): React.ReactElement {
   return (
     <div className="user-page">
       <header className="page-header user-page__head">
@@ -41,5 +41,3 @@ function SignInMessageScreen(): React.ReactElement {
     </div>
   );
 }
-
-export default SignInMessageScreen;

@@ -1,10 +1,10 @@
 import React from 'react';
-import Logo from '../../components/logo/logo.tsx';
+import {Logo} from '../../components/logo/logo.tsx';
 import {films, promoFilm} from '../../mocks/films.ts';
-import FilmList from '../../components/film-list/film-list.tsx';
-import UserBlock from '../../components/user-block/user-block.tsx';
+import {FilmList} from '../../components/film-list/film-list.tsx';
+import {UserBlock} from '../../components/user-block/user-block.tsx';
 
-function MoviePageScreen(): React.ReactElement {
+export function MoviePageScreen(): React.ReactElement {
   return (
     <>
       <section className="film-card film-card--full">
@@ -117,5 +117,3 @@ function MoviePageScreen(): React.ReactElement {
     </>
   );
 }
-
-export default MoviePageScreen;

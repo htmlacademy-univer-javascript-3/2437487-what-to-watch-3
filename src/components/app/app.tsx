@@ -3,10 +3,8 @@ import React from 'react';
 
 type AppProps = MainScreenProps;
 
-function App(props: AppProps): React.ReactElement {
+export function App(props: AppProps): React.ReactElement {
   return (
     <MainScreen {...props}/>
   );
 }
-
-export default App;

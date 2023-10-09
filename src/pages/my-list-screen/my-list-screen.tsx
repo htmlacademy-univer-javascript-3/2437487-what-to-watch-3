@@ -1,10 +1,10 @@
 import React from 'react';
-import FilmList from '../../components/film-list/film-list.tsx';
+import {FilmList} from '../../components/film-list/film-list.tsx';
 import {films} from '../../mocks/films.ts';
-import Logo from '../../components/logo/logo.tsx';
-import UserBlock from '../../components/user-block/user-block.tsx';
+import {Logo} from '../../components/logo/logo.tsx';
+import {UserBlock} from '../../components/user-block/user-block.tsx';
 
-function MyListScreen(): React.ReactElement {
+export function MyListScreen(): React.ReactElement {
   return (
     <div className="user-page">
       <header className="page-header user-page__head">
@@ -30,5 +30,3 @@ function MyListScreen(): React.ReactElement {
     </div>
   );
 }
-
-export default MyListScreen;

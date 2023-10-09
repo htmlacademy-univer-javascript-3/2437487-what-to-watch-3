@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ReviewForm(): React.ReactElement {
+export function ReviewForm(): React.ReactElement {
   return (
     <div className="add-review">
       <form action="#" className="add-review__form">
@@ -49,5 +49,3 @@ function ReviewForm(): React.ReactElement {
     </div>
   );
 }
-
-export default ReviewForm;

@@ -1,7 +1,7 @@
-import Logo from '../../components/logo/logo.tsx';
+import {Logo} from '../../components/logo/logo.tsx';
 import React from 'react';
 
-function SignInScreen(): React.ReactElement {
+export function SignInScreen(): React.ReactElement {
   return (
     <div className="user-page">
       <header className="page-header user-page__head">
@@ -36,5 +36,3 @@ function SignInScreen(): React.ReactElement {
     </div>
   );
 }
-
-export default SignInScreen;

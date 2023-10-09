@@ -1,9 +1,9 @@
 import {Logo} from 'components/logo/logo.tsx';
+import {UserBlock} from 'components/user-block/user-block.tsx';
 import {films, promoFilm} from 'mocks/films.ts';
 import {FilmsList} from 'components/films-list/films-list.tsx';
-import {UserBlock} from 'components/user-block/user-block.tsx';
 
-export function MoviePage() {
+export function MoviePageInList() {
   return (
     <>
       <section className="film-card film-card--full">
@@ -36,8 +36,8 @@ export function MoviePage() {
                   <span>Play</span>
                 </button>
                 <button className="btn btn--list film-card__button" type="button">
-                  <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
+                  <svg viewBox="0 0 18 14" width="18" height="14">
+                    <use xlinkHref="#in-list"></use>
                   </svg>
                   <span>My list</span>
                   <span className="film-card__count">9</span>
@@ -82,9 +82,10 @@ export function MoviePage() {
                   Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave&apos;s friend and protege.
                 </p>
 
-                <p>Gustave prides himself on providing first-class service to the hotel&apos;s guests, including satisfying the
-                  sexual needs of the many elderly women who stay there. When one of Gustave&apos;s lovers dies mysteriously,
-                  Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.
+                <p>Gustave prides himself on providing first-class service to the hotel&apos;s guests, including satisfying
+                  the sexual needs of the many elderly women who stay there. When one of Gustave&apos;s lovers dies
+                  mysteriously, Gustave finds himself the recipient of a priceless painting and the chief suspect in her
+                  murder.
                 </p>
 
                 <p className="film-card__director"><strong>Director: Wes Anderson</strong></p>
@@ -107,7 +108,6 @@ export function MoviePage() {
 
         <footer className="page-footer">
           <Logo />
-
           <div className="copyright">
             <p>© 2019 What to watch Ltd.</p>
           </div>

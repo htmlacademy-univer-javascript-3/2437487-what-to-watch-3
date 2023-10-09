@@ -1,9 +1,9 @@
 type FilmCardProps = {
-  poster: string;
   name: string;
+  poster: string;
 };
 
-export function FilmCard({poster, name}: FilmCardProps) {
+export function FilmCard({name, poster}: FilmCardProps) {
   return (
     <article className="small-film-card catalog__films-card">
       <div className="small-film-card__image">

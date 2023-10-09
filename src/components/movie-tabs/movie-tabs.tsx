@@ -3,13 +3,14 @@ import {Details} from '@components/movie-tabs/details/details.tsx';
 import {Reviews} from '@components/movie-tabs/reviews/reviews.tsx';
 import {Overview} from '@components/movie-tabs/overview/overview.tsx';
 import {useState} from 'react';
+import {reviews} from '@mocks/reviews.ts';
 
 export function MovieTabs() {
   const [movieTab, setMovieTab] = useState<MovieTabEnum>(MovieTabEnum.Overview);
   const getCurrentTab = (tab: string) => {
     switch (tab) {
       case MovieTabEnum.Reviews:
-        return <Reviews/>;
+        return <Reviews reviews={reviews}/>;
       case MovieTabEnum.Details:
         return <Details/>;
       case MovieTabEnum.Overview:

@@ -1,7 +1,7 @@
-import {Film} from '@typings/film.ts';
+import {Film} from 'types/film.ts';
 import {FilmsList} from '@components/films-list/films-list.tsx';
 import {Logo} from '@components/logo/logo.tsx';
-import {UserBlock} from '@components/user-block/user-block.tsx';
+import {Header} from '@components/header/header.tsx';
 
 export type MainPageProps = {
   promoFilm: Film;
@@ -16,13 +16,7 @@ export function MainPage({promoFilm, films} : MainPageProps) {
           <img src={promoFilm.background} alt={promoFilm.name}/>
         </div>
 
-        <h1 className="visually-hidden">WTW</h1>
-
-        <header className="page-header film-card__head">
-          <Logo isLight={false}/>
-
-          <UserBlock />
-        </header>
+        <Header/>
 
         <div className="film-card__wrap">
           <div className="film-card__info">

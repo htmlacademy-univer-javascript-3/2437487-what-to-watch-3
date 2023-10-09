@@ -1,4 +1,5 @@
 export type Film = {
+  id: number;
   name: string;
   poster: string;
   releaseYear: number;

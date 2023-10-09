@@ -1,4 +1,4 @@
-import type {Film} from '@typings/film.ts';
+import type {Film} from 'types/film.ts';
 import {FilmCard} from '@components/film-card/film-card.tsx';
 
 type FilmsListProps = {

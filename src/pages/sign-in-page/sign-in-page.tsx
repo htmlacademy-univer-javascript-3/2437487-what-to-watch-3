@@ -1,4 +1,5 @@
 import {Logo} from '@components/logo/logo.tsx';
+import {Header} from '@components/header/header.tsx';
 
 export function SignInPage() {
   const isInvalidEmail = false;
@@ -6,10 +7,7 @@ export function SignInPage() {
 
   return (
     <div className="user-page">
-      <header className="page-header user-page__head">
-        <Logo isLight={false}/>
-        <h1 className="page-title user-page__title">Sign in</h1>
-      </header>
+      <Header isSignInPage isUserPage/>
 
       <div className="sign-in user-page__content">
         <form action="#" className="sign-in__form">

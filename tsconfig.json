@@ -27,8 +27,8 @@
         "*",
         "src/*"
       ],
-      "@typings/*": [
-        "./src/typings/*"
+      "types/*": [
+        "./src/types/*"
       ],
       "@components/*": [
         "./src/components/*"

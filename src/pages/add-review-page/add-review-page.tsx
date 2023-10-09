@@ -1,7 +1,7 @@
 import {promoFilm} from '@mocks/films.ts';
 import {ReviewForm} from '@components/review-form/review-form.tsx';
-import {UserBlock} from '@components/user-block/user-block.tsx';
-import {Logo} from '@components/logo/logo.tsx';
+import {Header} from '@components/header/header.tsx';
+import {ReviewHeader} from '@components/header/review-header/review-header.tsx';
 
 export function AddReviewPage() {
   return (
@@ -11,24 +11,9 @@ export function AddReviewPage() {
           <img src={promoFilm.background} alt={promoFilm.name}/>
         </div>
 
-        <h1 className="visually-hidden">WTW</h1>
-
-        <header className="page-header">
-          <Logo isLight={false}/>
-
-          <nav className="breadcrumbs">
-            <ul className="breadcrumbs__list">
-              <li className="breadcrumbs__item">
-                <a href="film-page.html" className="breadcrumbs__link">{promoFilm.name}</a>
-              </li>
-              <li className="breadcrumbs__item">
-                <a className="breadcrumbs__link">Add review</a>
-              </li>
-            </ul>
-          </nav>
-
-          <UserBlock />
-        </header>
+        <Header>
+          <ReviewHeader/>
+        </Header>
 
         <div className="film-card__poster film-card__poster--small">
           <img src={promoFilm.poster} alt={`${promoFilm.name} poster`} width="218" height="327"/>

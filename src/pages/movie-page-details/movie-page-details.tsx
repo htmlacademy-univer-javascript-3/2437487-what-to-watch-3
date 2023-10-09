@@ -1,7 +1,8 @@
-import {Logo} from 'components/logo/logo.tsx';
-import {UserBlock} from 'components/user-block/user-block.tsx';
-import {films, promoFilm} from 'mocks/films.ts';
-import {FilmsList} from 'components/films-list/films-list.tsx';
+import {Logo} from '@components/logo/logo.tsx';
+import {films, promoFilm} from '@mocks/films.ts';
+import {FilmsList} from '@components/films-list/films-list.tsx';
+import {Header} from '@components/header/header.tsx';
+import {Link} from 'react-router-dom';
 
 export function MoviePageDetails() {
   return (
@@ -12,13 +13,7 @@ export function MoviePageDetails() {
             <img src={promoFilm.background} alt={promoFilm.name}/>
           </div>
 
-          <h1 className="visually-hidden">WTW</h1>
-
-          <header className="page-header film-card__head">
-            <Logo isLight={false}/>
-
-            <UserBlock />
-          </header>
+          <Header/>
 
           <div className="film-card__wrap">
             <div className="film-card__desc">
@@ -42,7 +37,7 @@ export function MoviePageDetails() {
                   <span>My list</span>
                   <span className="film-card__count">9</span>
                 </button>
-                <a href="add-review.html" className="btn film-card__button">Add review</a>
+                <Link to={`/films/${promoFilm.id}/review/`} className="btn film-card__button">Add review</Link>
               </div>
             </div>
           </div>
@@ -58,13 +53,13 @@ export function MoviePageDetails() {
               <nav className="film-nav film-card__nav">
                 <ul className="film-nav__list">
                   <li className="film-nav__item">
-                    <a href="#" className="film-nav__link">Overview</a>
+                    <a href="/" className="film-nav__link">Overview</a>
                   </li>
                   <li className="film-nav__item film-nav__item--active">
-                    <a href="#" className="film-nav__link">Details</a>
+                    <a href="/" className="film-nav__link">Details</a>
                   </li>
                   <li className="film-nav__item">
-                    <a href="#" className="film-nav__link">Reviews</a>
+                    <a href="/" className="film-nav__link">Reviews</a>
                   </li>
                 </ul>
               </nav>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PlayerScreen(): React.ReactElement {
+export function PlayerScreen(): React.ReactElement {
   return (
     <div className="player">
       <video src="#" className="player__video" poster="img/player-poster.jpg"></video>
@@ -36,5 +36,3 @@ function PlayerScreen(): React.ReactElement {
     </div>
   );
 }
-
-export default PlayerScreen;

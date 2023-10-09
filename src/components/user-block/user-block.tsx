@@ -1,6 +1,6 @@
 import React from 'react';
 
-function UserBlock(): React.ReactElement {
+export function UserBlock(): React.ReactElement {
   return (
     <ul className="user-block">
       <li className="user-block__item">
@@ -14,5 +14,3 @@ function UserBlock(): React.ReactElement {
     </ul>
   );
 }
-
-export default UserBlock;

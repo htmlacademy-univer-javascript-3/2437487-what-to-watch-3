@@ -1,15 +1,15 @@
 import React from 'react';
 import {Film} from '../../types/film.ts';
-import FilmList from '../../components/film-list/film-list.tsx';
-import Logo from '../../components/logo/logo.tsx';
-import UserBlock from '../../components/user-block/user-block.tsx';
+import {FilmList} from '../../components/film-list/film-list.tsx';
+import {Logo} from '../../components/logo/logo.tsx';
+import {UserBlock} from '../../components/user-block/user-block.tsx';
 
 export type MainScreenProps = {
   promoFilm: Film;
   films: Film[];
 }
 
-function MainScreen({promoFilm, films} : MainScreenProps): React.ReactElement {
+export function MainScreen({promoFilm, films} : MainScreenProps): React.ReactElement {
   return (
     <>
       <section className="film-card">
@@ -113,5 +113,3 @@ function MainScreen({promoFilm, films} : MainScreenProps): React.ReactElement {
     </>
   );
 }
-
-export default MainScreen;

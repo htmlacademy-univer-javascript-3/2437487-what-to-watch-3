@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Logo(): React.ReactElement {
+export function Logo(): React.ReactElement {
   return (
     <div className="logo">
       <a className="logo__link">
@@ -11,5 +11,3 @@ function Logo(): React.ReactElement {
     </div>
   );
 }
-
-export default Logo;

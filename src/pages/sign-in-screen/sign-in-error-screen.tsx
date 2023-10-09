@@ -1,7 +1,7 @@
-import Logo from '../../components/logo/logo.tsx';
+import {Logo} from '../../components/logo/logo.tsx';
 import React from 'react';
 
-function SignInErrorScreen(): React.ReactElement {
+export function SignInErrorScreen(): React.ReactElement {
   return (
     <div className="user-page">
       <header className="page-header user-page__head">
@@ -39,5 +39,3 @@ function SignInErrorScreen(): React.ReactElement {
     </div>
   );
 }
-
-export default SignInErrorScreen;

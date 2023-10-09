@@ -1,11 +1,22 @@
+import {Link, useParams} from 'react-router-dom';
+import {films} from '@mocks/films.ts';
+import {NotFoundPage} from '@pages/not-found-page/not-found-page.tsx';
+
 export function PlayerPage() {
+  const {id} = useParams();
+  const filmId = Number(id);
+  const film = films.at(filmId);
+  if (!film) {
+    return <NotFoundPage/>;
+  }
   const isPlaying = true;
   return (
     <div className="player">
       <video src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm" className="player__video" poster="img/player-poster.jpg"></video>
 
-      <button type="button" className="player__exit">Exit</button>
-
+      <Link to={`/films/${film.id}/`}>
+        <button type="button" className="player__exit">Exit</button>
+      </Link>
       <div className="player__controls">
         <div className="player__controls-row">
           <div className="player__time">

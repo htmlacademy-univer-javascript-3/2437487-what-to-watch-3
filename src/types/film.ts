@@ -5,4 +5,5 @@ export type Film = {
   releaseYear: number;
   genre: string;
   background?: string;
+  isFavorite?: boolean;
 }

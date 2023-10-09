@@ -1,16 +1,18 @@
+import type {Film} from 'types/film.ts';
+import {Link} from 'react-router-dom';
+
 type FilmCardProps = {
-  name: string;
-  poster: string;
+  film: Film;
 };
 
-export function FilmCard({name, poster}: FilmCardProps) {
+export function FilmCard({film}: FilmCardProps) {
   return (
     <article className="small-film-card catalog__films-card">
       <div className="small-film-card__image">
-        <img src={poster} alt={name} width="280" height="175"/>
+        <img src={film.poster} alt={film.name} width="280" height="175"/>
       </div>
       <h3 className="small-film-card__title">
-        <a className="small-film-card__link" href="film-page.html">{name}</a>
+        <Link className="small-film-card__link" to={`/films/${film.id}`}>{film.name}</Link>
       </h3>
     </article>
   );

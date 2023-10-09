@@ -11,6 +11,14 @@ export const promoFilm: Film = {
 
 export const films: Film[] = [
   {
+    id: 0,
+    name: 'The Grand Budapest Hotel',
+    poster: 'img/the-grand-budapest-hotel-poster.jpg',
+    releaseYear: 2014,
+    genre: 'Drama',
+    background: 'img/bg-the-grand-budapest-hotel.jpg',
+  },
+  {
     id: 1,
     name: 'Fantastic Beasts: The Crimes of Grindelwald',
     poster: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',

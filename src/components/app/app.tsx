@@ -1,4 +1,4 @@
-import {MainPage, MainPageProps} from '@pages/main-page/main-page.tsx';
+import {MainPage, type MainPageProps} from '@pages/main-page/main-page.tsx';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import {SignInPage} from '@pages/sign-in-page/sign-in-page.tsx';
 import {MyListPage} from '@pages/my-list-page/my-list-page.tsx';
@@ -7,7 +7,6 @@ import {PlayerPage} from '@pages/player-page/player-page.tsx';
 import {AddReviewPage} from '@pages/add-review-page/add-review-page.tsx';
 import {NotFoundPage} from '@pages/not-found-page/not-found-page.tsx';
 import {PrivateRoute} from '@components/private-route/private-route.tsx';
-// import {AppRoute} from 'types/app-route.ts';
 
 type AppProps = MainPageProps;
 

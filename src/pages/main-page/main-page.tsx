@@ -1,7 +1,8 @@
-import {Film} from 'types/film.ts';
+import type {Film} from 'types/film.ts';
 import {FilmsList} from '@components/films-list/films-list.tsx';
 import {Header} from '@components/header/header.tsx';
 import {Footer} from '@components/footer/footer.tsx';
+import {ShowMoreButton} from '@components/show-more-button/show-more-button.tsx';
 
 export type MainPageProps = {
   promoFilm: Film;
@@ -90,9 +91,7 @@ export function MainPage({promoFilm, films} : MainPageProps) {
 
           <FilmsList films={films}/>
 
-          <div className="catalog__more">
-            <button className="catalog__button" type="button">Show more</button>
-          </div>
+          <ShowMoreButton/>
         </section>
 
         <Footer/>

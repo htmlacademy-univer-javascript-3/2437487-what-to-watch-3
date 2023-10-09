@@ -3,6 +3,7 @@ import {FilmsList} from '@components/films-list/films-list.tsx';
 import {Header} from '@components/header/header.tsx';
 import {Footer} from '@components/footer/footer.tsx';
 import {ShowMoreButton} from '@components/show-more-button/show-more-button.tsx';
+import {AddInListButton} from '@components/add-in-list-button/add-in-list-button.tsx';
 
 export type MainPageProps = {
   promoFilm: Film;
@@ -39,13 +40,7 @@ export function MainPage({promoFilm, films} : MainPageProps) {
                   </svg>
                   <span>Play</span>
                 </button>
-                <button className="btn btn--list film-card__button" type="button">
-                  <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
-                  </svg>
-                  <span>My list</span>
-                  <span className="film-card__count">9</span>
-                </button>
+                <AddInListButton film={promoFilm}/>
               </div>
             </div>
           </div>
@@ -89,7 +84,7 @@ export function MainPage({promoFilm, films} : MainPageProps) {
             </li>
           </ul>
 
-          <FilmsList films={films}/>
+          <FilmsList films={films.slice(1)}/>
 
           <ShowMoreButton/>
         </section>

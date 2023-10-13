@@ -1,15 +1,16 @@
-import React from 'react';
-import {Film} from '../../types/film.ts';
-import FilmList from '../../components/film-list/film-list.tsx';
-import Logo from '../../components/logo/logo.tsx';
-import UserBlock from '../../components/user-block/user-block.tsx';
+import type {Film} from 'types/film.ts';
+import {FilmsList} from '@components/films-list/films-list.tsx';
+import {Header} from '@components/header/header.tsx';
+import {Footer} from '@components/footer/footer.tsx';
+import {ShowMoreButton} from '@components/show-more-button/show-more-button.tsx';
+import {AddInListButton} from '@components/add-in-list-button/add-in-list-button.tsx';
 
-export type MainScreenProps = {
+export type MainPageProps = {
   promoFilm: Film;
   films: Film[];
 }
 
-function MainScreen({promoFilm, films} : MainScreenProps): React.ReactElement {
+export function MainPage({promoFilm, films} : MainPageProps) {
   return (
     <>
       <section className="film-card">
@@ -17,13 +18,7 @@ function MainScreen({promoFilm, films} : MainScreenProps): React.ReactElement {
           <img src={promoFilm.background} alt={promoFilm.name}/>
         </div>
 
-        <h1 className="visually-hidden">WTW</h1>
-
-        <header className="page-header film-card__head">
-          <Logo />
-
-          <UserBlock />
-        </header>
+        <Header/>
 
         <div className="film-card__wrap">
           <div className="film-card__info">
@@ -35,7 +30,7 @@ function MainScreen({promoFilm, films} : MainScreenProps): React.ReactElement {
               <h2 className="film-card__title">{promoFilm.name}</h2>
               <p className="film-card__meta">
                 <span className="film-card__genre">{promoFilm.genre}</span>
-                <span className="film-card__year">{promoFilm.releaseYear}</span>
+                <span className="film-card__year">{promoFilm.released}</span>
               </p>
 
               <div className="film-card__buttons">
@@ -45,13 +40,7 @@ function MainScreen({promoFilm, films} : MainScreenProps): React.ReactElement {
                   </svg>
                   <span>Play</span>
                 </button>
-                <button className="btn btn--list film-card__button" type="button">
-                  <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
-                  </svg>
-                  <span>My list</span>
-                  <span className="film-card__count">9</span>
-                </button>
+                <AddInListButton film={promoFilm}/>
               </div>
             </div>
           </div>
@@ -95,23 +84,13 @@ function MainScreen({promoFilm, films} : MainScreenProps): React.ReactElement {
             </li>
           </ul>
 
-          <FilmList films={films}/>
+          <FilmsList films={films.slice(1)}/>
 
-          <div className="catalog__more">
-            <button className="catalog__button" type="button">Show more</button>
-          </div>
+          <ShowMoreButton/>
         </section>
 
-        <footer className="page-footer">
-          <Logo />
-
-          <div className="copyright">
-            <p>© 2019 What to watch Ltd.</p>
-          </div>
-        </footer>
+        <Footer/>
       </div>
     </>
   );
 }
-
-export default MainScreen;

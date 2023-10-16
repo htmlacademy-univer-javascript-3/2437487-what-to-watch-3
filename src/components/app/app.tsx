@@ -20,15 +20,15 @@ export function App(props: AppProps) {
           <Route path='mylist' element=
             {
               <PrivateRoute>
-                <MyListPage/>
+                <MyListPage {...props}/>
               </PrivateRoute>
             }
           />
           <Route path='films/:id'>
-            <Route index element={<MoviePage/>}/>
-            <Route path='review' element={<AddReviewPage/>}/>
+            <Route index element={<MoviePage {...props}/>}/>
+            <Route path='review' element={<AddReviewPage {...props}/>}/>
           </Route>
-          <Route path='player/:id' element={<PlayerPage/>}/>
+          <Route path='player/:id' element={<PlayerPage {...props}/>}/>
           <Route path='error404' element={<NotFoundPage/>}/>
           <Route path='*' element={<NotFoundPage/>}/>
         </Route>

@@ -1,10 +1,14 @@
 import {FilmsList} from '@components/films-list/films-list.tsx';
-import {films} from '@mocks/films.ts';
 import {Header} from '@components/header/header.tsx';
 import {MyListHeader} from '@components/header/my-list-header/my-list-header.tsx';
 import {Footer} from '@components/footer/footer.tsx';
+import {Film} from 'types/film.ts';
 
-export function MyListPage() {
+export type MyListPageProps = {
+  films: Film[];
+}
+
+export function MyListPage({films}: MyListPageProps) {
   return (
     <div className="user-page">
       <Header isUserPage>

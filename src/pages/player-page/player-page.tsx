@@ -1,8 +1,12 @@
 import {Link, useParams} from 'react-router-dom';
-import {films} from '@mocks/films.ts';
 import {NotFoundPage} from '@pages/not-found-page/not-found-page.tsx';
+import {MyListPageProps} from '@pages/my-list-page/my-list-page.tsx';
 
-export function PlayerPage() {
+import './Player.css';
+
+type PlayerPageProps = MyListPageProps;
+
+export function PlayerPage({films}: PlayerPageProps) {
   const {id} = useParams();
   const filmId = Number(id);
   const film = films.at(filmId);
@@ -21,7 +25,7 @@ export function PlayerPage() {
         <div className="player__controls-row">
           <div className="player__time">
             <progress className="player__progress" value="30" max="100"></progress>
-            <div className="player__toggler" style={{left: '30%'}}>Toggler</div>
+            <div className="player__toggler">Toggler</div>
           </div>
           <div className="player__time-value">1:30:29</div>
         </div>

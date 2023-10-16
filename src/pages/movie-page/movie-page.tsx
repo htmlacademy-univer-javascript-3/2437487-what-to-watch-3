@@ -1,4 +1,3 @@
-import {films} from '@mocks/films.ts';
 import {FilmsList} from '@components/films-list/films-list.tsx';
 import {Header} from '@components/header/header.tsx';
 import {Link, useParams} from 'react-router-dom';
@@ -6,8 +5,12 @@ import {Footer} from '@components/footer/footer.tsx';
 import {NotFoundPage} from '@pages/not-found-page/not-found-page.tsx';
 import {AddInListButton} from '@components/add-in-list-button/add-in-list-button.tsx';
 import {MovieTabs} from '@components/movie-tabs/movie-tabs.tsx';
+import {MyListPageProps} from '@pages/my-list-page/my-list-page.tsx';
 
-export function MoviePage() {
+
+type MoviePageProps = MyListPageProps;
+
+export function MoviePage({films}: MoviePageProps) {
   const {id} = useParams();
   const filmId = Number(id);
   const film = films.at(filmId);

@@ -6,6 +6,7 @@ import {NotFoundPage} from '@pages/not-found-page/not-found-page.tsx';
 import {AddInListButton} from '@components/add-in-list-button/add-in-list-button.tsx';
 import {MovieTabs} from '@components/movie-tabs/movie-tabs.tsx';
 import {MyListPageProps} from '@pages/my-list-page/my-list-page.tsx';
+import {PlayButton} from '@components/play-button/play-button.tsx';
 
 
 type MoviePageProps = MyListPageProps;
@@ -36,12 +37,7 @@ export function MoviePage({films}: MoviePageProps) {
               </p>
 
               <div className="film-card__buttons">
-                <button className="btn btn--play film-card__button" type="button">
-                  <svg viewBox="0 0 19 19" width="19" height="19">
-                    <use xlinkHref="#play-s"></use>
-                  </svg>
-                  <span>Play</span>
-                </button>
+                <PlayButton/>
                 <AddInListButton film={film}/>
                 <Link to={`/films/${film.id}/review/`} className="btn film-card__button">Add review</Link>
               </div>

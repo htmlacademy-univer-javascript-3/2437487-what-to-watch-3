@@ -1,5 +1,5 @@
 import type {Film} from 'types/film.ts';
-import {FilmList} from 'components/film-list/film-list.tsx';
+import {FilmList} from '@components/film-list/film-list.tsx';
 import {Header} from '@components/header/header.tsx';
 import {Footer} from '@components/footer/footer.tsx';
 import {ShowMoreButton} from '@components/show-more-button/show-more-button.tsx';

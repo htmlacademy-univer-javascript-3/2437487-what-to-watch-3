@@ -1,4 +1,4 @@
-import {FilmList} from 'components/film-list/film-list.tsx';
+import {FilmList} from '@components/film-list/film-list.tsx';
 import {Header} from '@components/header/header.tsx';
 import {Link, useParams} from 'react-router-dom';
 import {Footer} from '@components/footer/footer.tsx';

@@ -12,17 +12,18 @@ export function GenreList() {
   const handleClick = (evt: MouseEvent<HTMLAnchorElement>, genre: string) => {
     evt.preventDefault();
     dispatch(changeGenre(genre));
-  }
+  };
   return (
     <ul className="catalog__genres-list">
       {
         genres.map((genre) => (
           <li key={genre}
-              className={`catalog__genres-item ${genre === currentGenre ? 'catalog__genres-item--active' : ''}`}
+            className={`catalog__genres-item ${genre === currentGenre ? 'catalog__genres-item--active' : ''}`}
           >
             <a href="/"
-               className="catalog__genres-link"
-               onClick={(evt) => handleClick(evt, genre)}>
+              className="catalog__genres-link"
+              onClick={(evt) => handleClick(evt, genre)}
+            >
               {genre}
             </a>
           </li>

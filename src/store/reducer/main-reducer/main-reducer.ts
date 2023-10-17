@@ -35,7 +35,7 @@ export const mainReducer = createSlice({
       state.similarFilms = filterFilms(state.films, action.payload.genre).filter((i) => i.id !== action.payload.id).slice(0, 4);
     },
     changeFilmById: (state, action: {payload: number}) => {
-      const film = state.films.find((film) => film.id === action.payload);
+      const film = state.films.find((i) => i.id === action.payload);
       if (film) {
         state.film = film;
         state.similarFilms = filterFilms(state.films, film.genre).filter((i) => i.id !== film.id).slice(0, 4);

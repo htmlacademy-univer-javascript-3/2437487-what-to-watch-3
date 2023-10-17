@@ -17,7 +17,7 @@ type MoviePageProps = MyListPageProps;
 export function MoviePage({films}: MoviePageProps) {
   const {id} = useParams();
   const filmId = Number(id);
-  const film= useAppSelector(getFilm);
+  const film = useAppSelector(getFilm);
   const similarFilms = useAppSelector(getSimilarFilms);
   const dispatch = useAppDispatch();
   useEffect(() => {

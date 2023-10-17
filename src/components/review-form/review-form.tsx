@@ -4,10 +4,10 @@ import {films} from '@mocks/films.ts';
 import type {Review} from 'types/review.ts';
 
 export function ReviewForm() {
-
   const [filmRating, setFilmRating] = useState(0);
   const commentRef = useRef<HTMLTextAreaElement>(null);
   const navigate = useNavigate();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [reviewForm, setReviewForm] = useState<Review>({
     id: 0,
     text: '',
@@ -27,28 +27,42 @@ export function ReviewForm() {
       filmId: film.id,
     };
     setReviewForm(review);
-    navigate(`films/${film.id}`);
+    navigate(`/films/${film.id}`);
   };
-  const handleOnSubmit = (evt: FormEvent<HTMLFormElement>) => {
+  const submitHandler = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
     if (filmRating && commentRef.current?.value) {
       onSubmit(filmRating, commentRef.current.value);
     }
   };
-  const handleOnChange = (evt: ChangeEvent<HTMLInputElement>) => {
+  const changeHandler = (evt: ChangeEvent<HTMLInputElement>) => {
     setFilmRating(Number(evt.target.value));
   };
   return (
     <div className="add-review">
-      <form action="#" className="add-review__form" onSubmit={handleOnSubmit}>
+      <form action="#" className="add-review__form" onSubmit={submitHandler}>
         <div className="rating">
           <div className="rating__stars">
             {Array.from({ length: 10 }, (_, i) => i + 1)
               .reverse()
               .map((number) => (
                 <>
-                  <input key={`star-${number}`} onChange={handleOnChange} checked={reviewForm.rating === number} className="rating__input" id={`star-${number}`} type="radio" name="rating" value={`${number}`}/>
-                  <label className="rating__label" htmlFor={`star-${number}`}>Rating ${number}</label>
+                  <input
+                    key={`star-${number}`}
+                    onChange={changeHandler}
+                    // checked={reviewForm.rating === number}
+                    className="rating__input"
+                    id={`star-${number}`}
+                    type="radio"
+                    name="rating"
+                    value={`${number}`}
+                  />
+                  <label
+                    className="rating__label"
+                    htmlFor={`star-${number}`}
+                  >
+                    Rating ${number}
+                  </label>
                 </>
               ))}
           </div>

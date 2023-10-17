@@ -7,6 +7,9 @@ import {AddInListButton} from '@components/add-in-list-button/add-in-list-button
 import {MovieTabs} from '@components/movie-tabs/movie-tabs.tsx';
 import {MyListPageProps} from '@pages/my-list-page/my-list-page.tsx';
 import {PlayButton} from '@components/play-button/play-button.tsx';
+import {useEffect} from 'react';
+import {useAppDispatch, useAppSelector} from '../../hooks';
+import {changeFilmById, getFilm, getSimilarFilms} from 'store/reducer/main-reducer/action.ts';
 
 
 type MoviePageProps = MyListPageProps;
@@ -14,7 +17,14 @@ type MoviePageProps = MyListPageProps;
 export function MoviePage({films}: MoviePageProps) {
   const {id} = useParams();
   const filmId = Number(id);
-  const film = films.at(filmId);
+  const film = useAppSelector(getFilm);
+  const similarFilms = useAppSelector(getSimilarFilms);
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    if (!film || film.id !== filmId) {
+      dispatch(changeFilmById(filmId));
+    }
+  }, [filmId, film, dispatch]);
   if (!film) {
     return <NotFoundPage/>;
   }
@@ -60,7 +70,7 @@ export function MoviePage({films}: MoviePageProps) {
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
 
-          <FilmList films={films.filter((i) => i.genre === film.genre).slice(1, 5)} />
+          <FilmList films={similarFilms} />
         </section>
 
         <Footer/>

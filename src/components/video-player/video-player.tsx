@@ -15,7 +15,7 @@ export function VideoPlayer({src, poster, muted, isPlaying}: VideoPlayerProps) {
     } else {
       videoRef.current?.load();
     }
-  }, [isPlaying]);
+  }, [isPlaying, videoRef]);
   return (
     <video
       width="280"

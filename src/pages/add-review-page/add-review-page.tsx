@@ -1,11 +1,13 @@
-import {films} from '@mocks/films.ts';
 import {ReviewForm} from '@components/review-form/review-form.tsx';
 import {Header} from '@components/header/header.tsx';
 import {ReviewHeader} from '@components/header/review-header/review-header.tsx';
 import {useParams} from 'react-router-dom';
 import {NotFoundPage} from '@pages/not-found-page/not-found-page.tsx';
+import {MyListPageProps} from '@pages/my-list-page/my-list-page.tsx';
 
-export function AddReviewPage() {
+type AddReviewPageProps = MyListPageProps;
+
+export function AddReviewPage({films}: AddReviewPageProps) {
   const {id} = useParams();
   const filmId = Number(id);
   const film = films.at(filmId);

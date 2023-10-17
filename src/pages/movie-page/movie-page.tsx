@@ -1,13 +1,17 @@
-import {films} from '@mocks/films.ts';
-import {FilmsList} from '@components/films-list/films-list.tsx';
+import {FilmList} from '@components/film-list/film-list.tsx';
 import {Header} from '@components/header/header.tsx';
 import {Link, useParams} from 'react-router-dom';
 import {Footer} from '@components/footer/footer.tsx';
 import {NotFoundPage} from '@pages/not-found-page/not-found-page.tsx';
 import {AddInListButton} from '@components/add-in-list-button/add-in-list-button.tsx';
 import {MovieTabs} from '@components/movie-tabs/movie-tabs.tsx';
+import {MyListPageProps} from '@pages/my-list-page/my-list-page.tsx';
+import {PlayButton} from '@components/play-button/play-button.tsx';
 
-export function MoviePage() {
+
+type MoviePageProps = MyListPageProps;
+
+export function MoviePage({films}: MoviePageProps) {
   const {id} = useParams();
   const filmId = Number(id);
   const film = films.at(filmId);
@@ -33,12 +37,7 @@ export function MoviePage() {
               </p>
 
               <div className="film-card__buttons">
-                <button className="btn btn--play film-card__button" type="button">
-                  <svg viewBox="0 0 19 19" width="19" height="19">
-                    <use xlinkHref="#play-s"></use>
-                  </svg>
-                  <span>Play</span>
-                </button>
+                <PlayButton/>
                 <AddInListButton film={film}/>
                 <Link to={`/films/${film.id}/review/`} className="btn film-card__button">Add review</Link>
               </div>
@@ -52,7 +51,7 @@ export function MoviePage() {
               <img src={film.poster} alt={`${film.name} poster`} width="218" height="327"/>
             </div>
 
-            <MovieTabs/>
+            <MovieTabs films={films}/>
           </div>
         </div>
       </section>
@@ -61,7 +60,7 @@ export function MoviePage() {
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
 
-          <FilmsList films={films.slice(1, 5)} />
+          <FilmList films={films.slice(1, 5)} />
         </section>
 
         <Footer/>

@@ -1,9 +1,10 @@
 import type {Film} from 'types/film.ts';
-import {FilmsList} from '@components/films-list/films-list.tsx';
+import {FilmList} from '@components/film-list/film-list.tsx';
 import {Header} from '@components/header/header.tsx';
 import {Footer} from '@components/footer/footer.tsx';
 import {ShowMoreButton} from '@components/show-more-button/show-more-button.tsx';
 import {AddInListButton} from '@components/add-in-list-button/add-in-list-button.tsx';
+import {PlayButton} from '@components/play-button/play-button.tsx';
 
 export type MainPageProps = {
   promoFilm: Film;
@@ -34,12 +35,7 @@ export function MainPage({promoFilm, films} : MainPageProps) {
               </p>
 
               <div className="film-card__buttons">
-                <button className="btn btn--play film-card__button" type="button">
-                  <svg viewBox="0 0 19 19" width="19" height="19">
-                    <use xlinkHref="#play-s"></use>
-                  </svg>
-                  <span>Play</span>
-                </button>
+                <PlayButton/>
                 <AddInListButton film={promoFilm}/>
               </div>
             </div>
@@ -84,7 +80,7 @@ export function MainPage({promoFilm, films} : MainPageProps) {
             </li>
           </ul>
 
-          <FilmsList films={films.slice(1)}/>
+          <FilmList films={films.slice(1)}/>
 
           <ShowMoreButton/>
         </section>

@@ -11,4 +11,5 @@ export type Film = {
   runTime?: string;
   description?: string;
   rating: number;
+  previewLink: string;
 }

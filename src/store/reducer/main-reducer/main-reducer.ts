@@ -8,9 +8,10 @@ const initialState: MainState = {
   films: filmsMock,
   promoFilm: filmsMock[0],
   currentGenre: DEFAULT_GENRE,
-  similarFilms: [],
-  favoriteFilms: [],
-  filteredFilms: [],
+  similarFilms: filmsMock.slice(0, 4),
+  favoriteFilms: filmsMock,
+  filteredFilms: filmsMock,
+  film: filmsMock[0],
 };
 
 const filterFilms = (films: Film[], genre: string): Film[] => {
@@ -29,5 +30,16 @@ export const mainReducer = createSlice({
       state.currentGenre = action.payload;
       state.filteredFilms = filteredFilms;
     },
+    changeFilm: (state, action: {payload: Film}) => {
+      state.film = action.payload;
+      state.similarFilms = filterFilms(state.films, action.payload.genre).filter((i) => i.id !== action.payload.id).slice(0, 4);
+    },
+    changeFilmById: (state, action: {payload: number}) => {
+      const film = state.films.find((film) => film.id === action.payload);
+      if (film) {
+        state.film = film;
+        state.similarFilms = filterFilms(state.films, film.genre).filter((i) => i.id !== film.id).slice(0, 4);
+      }
+    }
   }
 });

@@ -7,9 +7,10 @@ export type AppDispatch = typeof store.dispatch;
 
 export type MainState = {
   films: Film[];
-  promoFilm: Film | null;
+  promoFilm: Film;
   currentGenre: string;
   similarFilms: Film[];
   favoriteFilms: Film[];
   filteredFilms: Film[];
+  film: Film;
 }

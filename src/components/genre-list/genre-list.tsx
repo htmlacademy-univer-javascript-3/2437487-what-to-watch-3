@@ -1,13 +1,12 @@
-import {useSelector} from 'react-redux';
-import {useAppDispatch} from '../../hooks';
+import {useAppDispatch, useAppSelector} from '../../hooks';
 import {changeGenre, getCurrentGenre, getFilms} from 'store/reducer/main-reducer/action.ts';
 import {getGenres} from '@components/genre-list/genre-list.ts';
 import {MouseEvent} from 'react';
 
 export function GenreList() {
   const dispatch = useAppDispatch();
-  const currentGenre = useSelector(getCurrentGenre);
-  const films = useSelector(getFilms);
+  const currentGenre = useAppSelector(getCurrentGenre);
+  const films = useAppSelector(getFilms);
   const genres = getGenres(films);
 
   const handleClick = (evt: MouseEvent<HTMLAnchorElement>, genre: string) => {

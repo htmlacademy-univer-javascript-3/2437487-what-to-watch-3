@@ -1,13 +1,14 @@
 import {ChangeEvent, FormEvent, useRef, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
-import {filmsMock} from '@mocks/films.ts';
 import type {Review} from 'types/review.ts';
+import {useAppSelector} from '../../hooks';
+import {getFilm} from 'store/reducer/main-reducer/action.ts';
 
 export function ReviewForm() {
   const [filmRating, setFilmRating] = useState(0);
   const commentRef = useRef<HTMLTextAreaElement>(null);
   const navigate = useNavigate();
-  const film = filmsMock[0];
+  const film = useAppSelector(getFilm);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [reviewForm, setReviewForm] = useState<Review>({
     id: 0,

@@ -7,16 +7,16 @@ export function ReviewForm() {
   const [filmRating, setFilmRating] = useState(0);
   const commentRef = useRef<HTMLTextAreaElement>(null);
   const navigate = useNavigate();
+  const film = films[0];
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [reviewForm, setReviewForm] = useState<Review>({
     id: 0,
     text: '',
-    author: 'somebody',
-    date: '2023-10-10',
+    author: '',
+    date: '',
     rating: 0,
-    filmId: 0,
+    filmId: film.id,
   });
-  const film = films[0];
   const onSubmit = (rating: number, comment: string) => {
     const review: Review = {
       id: film.id,
@@ -50,7 +50,6 @@ export function ReviewForm() {
                   <input
                     key={`star-${number}`}
                     onChange={changeHandler}
-                    // checked={reviewForm.rating === number}
                     className="rating__input"
                     id={`star-${number}`}
                     type="radio"

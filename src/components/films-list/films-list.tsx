@@ -5,7 +5,7 @@ type FilmListProps = {
   films: Film[];
 }
 
-export function FilmList({films}: FilmListProps) {
+export function FilmsList({films}: FilmListProps) {
   return (
     <div className="catalog__films-list">
       {films.map((film) => <FilmCard key={film.id} film={film}/>)}

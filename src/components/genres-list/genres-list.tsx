@@ -1,9 +1,9 @@
 import {useAppDispatch, useAppSelector} from '../../hooks';
 import {changeGenre, getCurrentGenre, getFilms} from 'store/reducer/main-reducer/action.ts';
-import {getGenres} from '@components/genre-list/genre-list.ts';
+import {getGenres} from '@components/genres-list/genres-list.ts';
 import {MouseEvent} from 'react';
 
-export function GenreList() {
+export function GenresList() {
   const dispatch = useAppDispatch();
   const currentGenre = useAppSelector(getCurrentGenre);
   const films = useAppSelector(getFilms);

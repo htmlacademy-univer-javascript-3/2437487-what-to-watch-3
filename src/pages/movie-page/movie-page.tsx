@@ -60,7 +60,7 @@ export function MoviePage({films}: MoviePageProps) {
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
 
-          <FilmList films={films.slice(1, 5)} />
+          <FilmList films={films.filter((i) => i.genre === film.genre).slice(1, 5)} />
         </section>
 
         <Footer/>

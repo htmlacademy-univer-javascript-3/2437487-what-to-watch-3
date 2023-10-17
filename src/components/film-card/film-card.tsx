@@ -32,7 +32,7 @@ export function FilmCard({film}: FilmCardProps) {
   return (
     <Link className="small-film-card__link small-film-card catalog__films-card" to={`/films/${film.id}`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <VideoPlayer src={film.previewLink} poster={film.poster} muted isPlaying={videoIsPlaying}/>
-      {!videoIsPlaying && <h3 className="small-film-card__title">The Grand Budapest Hotel</h3>}
+      {!videoIsPlaying && <h3 className="small-film-card__title">{film.name}</h3>}
     </Link>
   );
 }

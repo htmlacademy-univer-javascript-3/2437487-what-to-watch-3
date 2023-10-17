@@ -30,11 +30,6 @@ export function MovieTabs({films}: MovieTabsProps) {
           {
             Object.values(MovieTabEnum).map((currentTab) =>
               <MovieTab key={currentTab} name={currentTab} onClick={setMovieTab} isActive={movieTab === currentTab}/>
-              // (
-              //   <li key={currentTab} className={`film-nav__item ${movieTab === currentTab ? ' film-nav__item--active' : ''}`}>
-              //     <div onClick={() => setMovieTab(currentTab)} className="film-nav__link">{currentTab}</div>
-              //   </li>
-              // )
             )
           }
         </ul>

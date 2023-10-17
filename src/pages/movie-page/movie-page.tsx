@@ -1,4 +1,4 @@
-import {FilmsList} from '@components/films-list/films-list.tsx';
+import {FilmList} from 'components/film-list/film-list.tsx';
 import {Header} from '@components/header/header.tsx';
 import {Link, useParams} from 'react-router-dom';
 import {Footer} from '@components/footer/footer.tsx';
@@ -51,7 +51,7 @@ export function MoviePage({films}: MoviePageProps) {
               <img src={film.poster} alt={`${film.name} poster`} width="218" height="327"/>
             </div>
 
-            <MovieTabs/>
+            <MovieTabs films={films}/>
           </div>
         </div>
       </section>
@@ -60,7 +60,7 @@ export function MoviePage({films}: MoviePageProps) {
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
 
-          <FilmsList films={films.slice(1, 5)} />
+          <FilmList films={films.slice(1, 5)} />
         </section>
 
         <Footer/>

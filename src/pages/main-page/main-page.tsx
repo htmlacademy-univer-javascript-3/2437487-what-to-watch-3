@@ -1,5 +1,5 @@
 import type {Film} from 'types/film.ts';
-import {FilmsList} from '@components/films-list/films-list.tsx';
+import {FilmList} from 'components/film-list/film-list.tsx';
 import {Header} from '@components/header/header.tsx';
 import {Footer} from '@components/footer/footer.tsx';
 import {ShowMoreButton} from '@components/show-more-button/show-more-button.tsx';
@@ -80,7 +80,7 @@ export function MainPage({promoFilm, films} : MainPageProps) {
             </li>
           </ul>
 
-          <FilmsList films={films.slice(1)}/>
+          <FilmList films={films.slice(1)}/>
 
           <ShowMoreButton/>
         </section>

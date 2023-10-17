@@ -1,9 +1,12 @@
 import {useParams} from 'react-router-dom';
-import {films} from '@mocks/films.ts';
 import {formatNumber} from '@components/movie-tabs/movie-tabs.ts';
 import {NotFoundPage} from '@pages/not-found-page/not-found-page.tsx';
+import {Film} from 'types/film.ts';
 
-export function Overview() {
+type OverviewProps = {
+  films: Film[];
+}
+export function Overview({films}: OverviewProps) {
   const {id} = useParams();
   const filmId = Number(id);
   const film = films.at(filmId);

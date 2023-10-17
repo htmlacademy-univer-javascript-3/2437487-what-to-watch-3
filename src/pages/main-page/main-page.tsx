@@ -1,17 +1,19 @@
-import type {Film} from 'types/film.ts';
 import {FilmList} from '@components/film-list/film-list.tsx';
 import {Header} from '@components/header/header.tsx';
 import {Footer} from '@components/footer/footer.tsx';
 import {ShowMoreButton} from '@components/show-more-button/show-more-button.tsx';
 import {AddInListButton} from '@components/add-in-list-button/add-in-list-button.tsx';
 import {PlayButton} from '@components/play-button/play-button.tsx';
+import {getFilms, getPromoFilm} from 'store/reducer/main-reducer/action.ts';
+import {useAppSelector} from '../../hooks';
 
-export type MainPageProps = {
-  promoFilm: Film;
-  films: Film[];
-}
 
-export function MainPage({promoFilm, films} : MainPageProps) {
+export function MainPage() {
+  const promoFilm = useAppSelector(getPromoFilm);
+  const films = useAppSelector(getFilms);
+  if (!promoFilm) {
+    return null;
+  }
   return (
     <>
       <section className="film-card">

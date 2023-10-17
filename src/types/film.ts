@@ -4,12 +4,12 @@ export type Film = {
   poster: string;
   released: number;
   genre: string;
-  background?: string;
-  isFavorite?: boolean;
+  background: string;
+  isFavorite: boolean;
   director: string;
   starring: string[];
-  runTime?: string;
-  description?: string;
+  runTime: string;
+  description: string;
   rating: number;
   previewLink: string;
 }

@@ -1,34 +1,34 @@
 import {Film} from 'types/film.ts';
 
-export const promoFilm: Film = {
-  id: 0,
-  name: 'The Grand Budapest Hotel',
-  poster: 'img/the-grand-budapest-hotel-poster.jpg',
-  released: 2014,
-  genre: 'Drama',
-  background: 'img/bg-the-grand-budapest-hotel.jpg',
-  director: 'Wes Anderson',
-  starring: [
-    'Bill Murray',
-    'Edward Norton',
-    'Jude Law',
-    'Willem Dafoe',
-    'Saoirse Ronan',
-    'Tony Revoloru',
-    'Tilda Swinton',
-    'Tom Wilkinson',
-    'Owen Wilkinson',
-    'Adrien Brody',
-    'Ralph Fiennes',
-    'Jeff Goldblum'
-  ],
-  runTime: '1h 39m',
-  description: 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege. Gustave prides himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.',
-  rating: 8.9,
-  previewLink: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm',
-};
+// export const promoFilm: Film = {
+//   id: 0,
+//   name: 'The Grand Budapest Hotel',
+//   poster: 'img/the-grand-budapest-hotel-poster.jpg',
+//   released: 2014,
+//   genre: 'Drama',
+//   background: 'img/bg-the-grand-budapest-hotel.jpg',
+//   director: 'Wes Anderson',
+//   starring: [
+//     'Bill Murray',
+//     'Edward Norton',
+//     'Jude Law',
+//     'Willem Dafoe',
+//     'Saoirse Ronan',
+//     'Tony Revoloru',
+//     'Tilda Swinton',
+//     'Tom Wilkinson',
+//     'Owen Wilkinson',
+//     'Adrien Brody',
+//     'Ralph Fiennes',
+//     'Jeff Goldblum'
+//   ],
+//   runTime: '1h 39m',
+//   description: 'In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave\'s friend and protege. Gustave prides himself on providing first-class service to the hotel\'s guests, including satisfying the sexual needs of the many elderly women who stay there. When one of Gustave\'s lovers dies mysteriously, Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.',
+//   rating: 8.9,
+//   previewLink: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm',
+// };
 
-export const films: Film[] = [
+export const filmsMock: Film[] = [
   {
     id: 0,
     name: 'The Grand Budapest Hotel',
@@ -55,6 +55,7 @@ export const films: Film[] = [
     rating: 8.9,
     previewLink: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm',
     runTime: '1h 39m',
+    isFavorite: true,
   },
   {
     id: 1,
@@ -68,6 +69,8 @@ export const films: Film[] = [
     description: 'It\'s description',
     previewLink: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm',
     runTime: '1h 39m',
+    isFavorite: true,
+    background: '',
   },
   {
     id: 2,
@@ -81,6 +84,8 @@ export const films: Film[] = [
     description: 'It\'s description',
     previewLink: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm',
     runTime: '1h 39m',
+    isFavorite: true,
+    background: '',
   },
   {
     id: 3,
@@ -94,6 +99,8 @@ export const films: Film[] = [
     description: 'It\'s description',
     previewLink: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm',
     runTime: '1h 39m',
+    isFavorite: true,
+    background: '',
   },
   {
     id: 4,
@@ -107,6 +114,8 @@ export const films: Film[] = [
     description: 'It\'s description',
     previewLink: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm',
     runTime: '1h 39m',
+    isFavorite: true,
+    background: '',
   },
   {
     id: 5,
@@ -120,6 +129,8 @@ export const films: Film[] = [
     description: 'It\'s description',
     previewLink: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm',
     runTime: '1h 39m',
+    isFavorite: true,
+    background: '',
   },
   {
     id: 6,
@@ -133,6 +144,8 @@ export const films: Film[] = [
     description: 'It\'s description',
     previewLink: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm',
     runTime: '1h 39m',
+    isFavorite: true,
+    background: '',
   },
   {
     id: 7,
@@ -146,6 +159,8 @@ export const films: Film[] = [
     description: 'It\'s description',
     previewLink: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm',
     runTime: '1h 39m',
+    isFavorite: true,
+    background: '',
   },
   {
     id: 8,
@@ -159,6 +174,8 @@ export const films: Film[] = [
     description: 'It\'s description',
     previewLink: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm',
     runTime: '1h 39m',
+    isFavorite: true,
+    background: '',
   },
   {
     id: 9,
@@ -172,6 +189,8 @@ export const films: Film[] = [
     description: 'It\'s description',
     previewLink: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm',
     runTime: '1h 39m',
+    isFavorite: true,
+    background: '',
   },
   {
     id: 10,
@@ -185,6 +204,8 @@ export const films: Film[] = [
     description: 'It\'s description',
     previewLink: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm',
     runTime: '1h 39m',
+    isFavorite: true,
+    background: '',
   },
   {
     id: 11,
@@ -198,6 +219,8 @@ export const films: Film[] = [
     description: 'It\'s description',
     previewLink: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm',
     runTime: '1h 39m',
+    isFavorite: true,
+    background: '',
   },
   {
     id: 12,
@@ -211,6 +234,8 @@ export const films: Film[] = [
     description: 'It\'s description',
     previewLink: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm',
     runTime: '1h 39m',
+    isFavorite: true,
+    background: '',
   },
   {
     id: 13,
@@ -224,6 +249,8 @@ export const films: Film[] = [
     description: 'It\'s description',
     previewLink: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm',
     runTime: '1h 39m',
+    isFavorite: true,
+    background: '',
   },
   {
     id: 14,
@@ -237,6 +264,8 @@ export const films: Film[] = [
     description: 'It\'s description',
     previewLink: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm',
     runTime: '1h 39m',
+    isFavorite: true,
+    background: '',
   },
   {
     id: 15,
@@ -250,6 +279,8 @@ export const films: Film[] = [
     description: 'It\'s description',
     previewLink: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm',
     runTime: '1h 39m',
+    isFavorite: true,
+    background: '',
   },
   {
     id: 16,
@@ -263,6 +294,8 @@ export const films: Film[] = [
     description: 'It\'s description',
     previewLink: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm',
     runTime: '1h 39m',
+    isFavorite: true,
+    background: '',
   },
   {
     id: 17,
@@ -276,6 +309,8 @@ export const films: Film[] = [
     description: 'It\'s description',
     previewLink: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm',
     runTime: '1h 39m',
+    isFavorite: true,
+    background: '',
   },
   {
     id: 18,
@@ -289,6 +324,8 @@ export const films: Film[] = [
     description: 'It\'s description',
     previewLink: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm',
     runTime: '1h 39m',
+    isFavorite: true,
+    background: '',
   },
   {
     id: 19,
@@ -302,6 +339,8 @@ export const films: Film[] = [
     description: 'It\'s description',
     previewLink: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm',
     runTime: '1h 39m',
+    isFavorite: true,
+    background: '',
   },
   {
     id: 20,
@@ -315,5 +354,7 @@ export const films: Film[] = [
     description: 'It\'s description',
     previewLink: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm',
     runTime: '1h 39m',
+    isFavorite: true,
+    background: '',
   },
 ];

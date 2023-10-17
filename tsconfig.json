@@ -39,6 +39,9 @@
       "@mocks/*": [
         "./src/mocks/*"
       ],
+      "store/*": [
+        "./src/store/*"
+      ],
     },
   },
   "include": ["src", "vite.config.ts"],

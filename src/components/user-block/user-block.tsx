@@ -21,7 +21,7 @@ export function UserBlock() {
           <li className="user-block__item">
             <Link to={AppRoute.MyList} className="user-block__link">
               <div className="user-block__avatar">
-                <img src={user?.avatarUrl} alt="User avatar" width="63" height="63"/>
+                <img src={user ? user.avatarUrl : 'img/avatar.jpg'} alt="User avatar" width="63" height="63"/>
               </div>
             </Link>
           </li>

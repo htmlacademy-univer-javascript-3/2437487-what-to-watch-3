@@ -1,5 +1,6 @@
 export enum Namespace {
   Main = 'MAIN',
+  User = 'USER',
 }
 
 export const DEFAULT_GENRE = 'All genres';

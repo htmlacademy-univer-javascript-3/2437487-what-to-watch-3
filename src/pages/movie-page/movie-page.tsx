@@ -51,7 +51,7 @@ export function MoviePage() {
               </p>
 
               <div className="film-card__buttons">
-                <PlayButton/>
+                <PlayButton film={film}/>
                 <AddInListButton film={film}/>
                 <Link to={`/films/${film.id}/review/`} className="btn film-card__button">Add review</Link>
               </div>

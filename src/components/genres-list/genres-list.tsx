@@ -27,7 +27,7 @@ export function GenresList() {
               {genre}
             </a>
           </li>
-        ))
+        )).slice(0, 10)
       }
     </ul>
   );

@@ -10,7 +10,7 @@ import {PlayButton} from '@components/play-button/play-button.tsx';
 import {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from '../../hooks';
 import {getFilm, getSimilarFilms} from 'store/reducer/main-reducer/action.ts';
-import {fetchFilmAction} from 'store/api-action.ts';
+import {fetchFilmAction, fetchSimilarFilmsAction} from 'store/api-action.ts';
 
 
 type MoviePageProps = MyListPageProps;
@@ -25,6 +25,7 @@ export function MoviePage({films}: MoviePageProps) {
     if (isMounted) {
       if (!film || film.id !== id) {
         dispatch(fetchFilmAction(id));
+        dispatch(fetchSimilarFilmsAction(id));
       }
     }
     return () => {

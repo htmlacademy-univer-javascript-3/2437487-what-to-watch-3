@@ -20,7 +20,7 @@ export const fetchFilmsAction = createAsyncThunk<Film[], undefined, ApiConfig>(
 export const fetchPromoFilmAction = createAsyncThunk<Film, undefined, ApiConfig>(
   'data/fetchPromoFilm',
   async (_arg,{ extra: api}) => {
-    const { data } = await api.get<Film>('films/promo');
+    const { data } = await api.get<Film>('promo');
     return data;
   },
 );
@@ -29,6 +29,14 @@ export const fetchFilmAction = createAsyncThunk<Film, string, ApiConfig>(
   'data/fetchFilm',
   async (id,{ extra: api}) => {
     const { data } = await api.get<Film>(`films/${id}`);
+    return data;
+  },
+);
+
+export const fetchSimilarFilmsAction = createAsyncThunk<Film[], string, ApiConfig>(
+  'data/fetchSimilarFilms',
+  async (id,{ extra: api}) => {
+    const { data } = await api.get<Film[]>(`films/${id}/similar`);
     return data;
   },
 );

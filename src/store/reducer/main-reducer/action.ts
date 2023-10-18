@@ -16,14 +16,6 @@ export const changeGenre = (genre: string) => ({
   type: `${Namespace.Main}/changeGenre`,
   payload: genre,
 });
-export const changeFilm = (film: Film) => ({
-  type: `${Namespace.Main}/changeFilm`,
-  payload: film,
-});
-export const changeFilmById = (id: number) => ({
-  type: `${Namespace.Main}/changeFilmById`,
-  payload: id,
-});
 export const increaseCardCount = () => ({
   type: `${Namespace.Main}/increaseCardCount`,
 });

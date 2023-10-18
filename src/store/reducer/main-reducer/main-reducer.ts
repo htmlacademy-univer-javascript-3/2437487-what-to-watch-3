@@ -30,6 +30,7 @@ export const mainReducer = createSlice({
       const filteredFilms = filterFilms(state.films, action.payload);
       state.currentGenre = action.payload;
       state.filteredFilms = filteredFilms;
+      state.cardCount = filteredFilms.length > SHOWN_CARDS_COUNT ? SHOWN_CARDS_COUNT : filteredFilms.length;
     },
     changeFilm: (state, action: {payload: Film}) => {
       state.film = action.payload;
@@ -43,7 +44,14 @@ export const mainReducer = createSlice({
       }
     },
     increaseCardCount: (state) => {
-      state.cardCount += SHOWN_CARDS_COUNT;
+      state.cardCount = (state.cardCount + SHOWN_CARDS_COUNT > state.filteredFilms.length) ?
+        state.filteredFilms.length :
+        state.cardCount + SHOWN_CARDS_COUNT;
     },
+    resetMainPage: (state) => {
+      state.currentGenre = DEFAULT_GENRE;
+      state.filteredFilms = state.films;
+      state.cardCount = state.filteredFilms.length > SHOWN_CARDS_COUNT ? SHOWN_CARDS_COUNT : state.filteredFilms.length;
+    }
   }
 });

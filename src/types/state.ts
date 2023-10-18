@@ -13,4 +13,5 @@ export type MainState = {
   favoriteFilms: Film[];
   filteredFilms: Film[];
   film: Film;
+  cardCount: number;
 }

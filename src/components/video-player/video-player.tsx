@@ -10,11 +10,18 @@ type VideoPlayerProps = {
 export function VideoPlayer({src, poster, muted, isPlaying}: VideoPlayerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   useEffect(() => {
-    if (isPlaying) {
-      videoRef.current?.play();
-    } else {
-      videoRef.current?.load();
+    let isMounted = true;
+
+    if (isMounted) {
+      if (isPlaying) {
+        videoRef.current?.play();
+      } else {
+        videoRef.current?.load();
+      }
     }
+    return () => {
+      isMounted = false;
+    };
   }, [isPlaying, videoRef]);
   return (
     <video

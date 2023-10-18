@@ -1,4 +1,4 @@
-import {FilmList} from '@components/film-list/film-list.tsx';
+import {FilmsList} from '@components/films-list/films-list.tsx';
 import {Header} from '@components/header/header.tsx';
 import {Link, useParams} from 'react-router-dom';
 import {Footer} from '@components/footer/footer.tsx';
@@ -21,9 +21,15 @@ export function MoviePage({films}: MoviePageProps) {
   const similarFilms = useAppSelector(getSimilarFilms);
   const dispatch = useAppDispatch();
   useEffect(() => {
-    if (!film || film.id !== filmId) {
-      dispatch(changeFilmById(filmId));
+    let isMounted = true;
+    if (isMounted) {
+      if (!film || film.id !== filmId) {
+        dispatch(changeFilmById(filmId));
+      }
     }
+    return () => {
+      isMounted = false;
+    };
   }, [filmId, film, dispatch]);
   if (!film) {
     return <NotFoundPage/>;
@@ -70,7 +76,7 @@ export function MoviePage({films}: MoviePageProps) {
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
 
-          <FilmList films={similarFilms} />
+          <FilmsList films={similarFilms} />
         </section>
 
         <Footer/>

@@ -8,6 +8,10 @@ export const getFilteredFilms = (state: State): Film[] => state[Namespace.Main].
 export const getSimilarFilms = (state: State): Film[] => state[Namespace.Main].similarFilms;
 export const getPromoFilm = (state: State): Film | null => state[Namespace.Main].promoFilm;
 export const getCurrentGenre = (state: State): string => state[Namespace.Main].currentGenre;
+export const getCardCount = (state: State): number => state[Namespace.Main].cardCount;
+export const resetMainPage = () => ({
+  type: `${Namespace.Main}/resetMainPage`,
+});
 export const changeGenre = (genre: string) => ({
   type: `${Namespace.Main}/changeGenre`,
   payload: genre,
@@ -19,4 +23,7 @@ export const changeFilm = (film: Film) => ({
 export const changeFilmById = (id: number) => ({
   type: `${Namespace.Main}/changeFilmById`,
   payload: id,
+});
+export const increaseCardCount = () => ({
+  type: `${Namespace.Main}/increaseCardCount`,
 });

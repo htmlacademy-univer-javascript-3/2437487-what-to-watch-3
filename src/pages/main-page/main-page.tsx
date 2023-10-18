@@ -1,15 +1,16 @@
-import {FilmList} from '@components/film-list/film-list.tsx';
+import {FilmsList} from '@components/films-list/films-list.tsx';
 import {Header} from '@components/header/header.tsx';
 import {Footer} from '@components/footer/footer.tsx';
 import {ShowMoreButton} from '@components/show-more-button/show-more-button.tsx';
 import {AddInListButton} from '@components/add-in-list-button/add-in-list-button.tsx';
 import {PlayButton} from '@components/play-button/play-button.tsx';
-import {getFilteredFilms, getPromoFilm} from 'store/reducer/main-reducer/action.ts';
+import {getCardCount, getFilteredFilms, getPromoFilm} from 'store/reducer/main-reducer/action.ts';
 import {useAppSelector} from '../../hooks';
-import {GenreList} from '@components/genre-list/genre-list.tsx';
+import {GenresList} from '@components/genres-list/genres-list.tsx';
 
 
 export function MainPage() {
+  const cardCount = useAppSelector(getCardCount);
   const promoFilm = useAppSelector(getPromoFilm);
   const films = useAppSelector(getFilteredFilms);
   if (!promoFilm) {
@@ -50,11 +51,11 @@ export function MainPage() {
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-          <GenreList/>
+          <GenresList/>
 
-          <FilmList films={films}/>
+          <FilmsList films={films.slice(0, cardCount)}/>
 
-          <ShowMoreButton/>
+          {cardCount !== films.length && <ShowMoreButton/>}
         </section>
 
         <Footer/>

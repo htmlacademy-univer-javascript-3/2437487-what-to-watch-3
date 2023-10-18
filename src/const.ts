@@ -3,3 +3,5 @@ export enum Namespace {
 }
 
 export const DEFAULT_GENRE = 'All genres';
+
+export const SHOWN_CARDS_COUNT = 8;

@@ -1,5 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {DEFAULT_GENRE, Namespace} from '../../../const.ts';
+import {DEFAULT_GENRE, Namespace, SHOWN_CARDS_COUNT} from '../../../const.ts';
 import {MainState} from 'types/state.ts';
 import {Film} from 'types/film.ts';
 import {filmsMock} from '@mocks/films.ts';
@@ -12,6 +12,7 @@ const initialState: MainState = {
   favoriteFilms: filmsMock,
   filteredFilms: filmsMock,
   film: filmsMock[0],
+  cardCount: 0,
 };
 
 const filterFilms = (films: Film[], genre: string): Film[] => {
@@ -29,6 +30,7 @@ export const mainReducer = createSlice({
       const filteredFilms = filterFilms(state.films, action.payload);
       state.currentGenre = action.payload;
       state.filteredFilms = filteredFilms;
+      state.cardCount = filteredFilms.length > SHOWN_CARDS_COUNT ? SHOWN_CARDS_COUNT : filteredFilms.length;
     },
     changeFilm: (state, action: {payload: Film}) => {
       state.film = action.payload;
@@ -40,6 +42,16 @@ export const mainReducer = createSlice({
         state.film = film;
         state.similarFilms = filterFilms(state.films, film.genre).filter((i) => i.id !== film.id).slice(0, 4);
       }
+    },
+    increaseCardCount: (state) => {
+      state.cardCount = (state.cardCount + SHOWN_CARDS_COUNT > state.filteredFilms.length) ?
+        state.filteredFilms.length :
+        state.cardCount + SHOWN_CARDS_COUNT;
+    },
+    resetMainPage: (state) => {
+      state.currentGenre = DEFAULT_GENRE;
+      state.filteredFilms = state.films;
+      state.cardCount = state.filteredFilms.length > SHOWN_CARDS_COUNT ? SHOWN_CARDS_COUNT : state.filteredFilms.length;
     }
   }
 });

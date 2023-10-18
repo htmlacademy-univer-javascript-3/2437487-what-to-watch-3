@@ -1,13 +1,18 @@
 import React from 'react';
 import {NotFoundPage} from '@pages/not-found-page/not-found-page.tsx';
 import {useAppSelector} from '../../../hooks';
-import {getFilm} from 'store/reducer/main-reducer/action.ts';
+import {getFilm} from 'store/reducer/film-reducer/action.ts';
 
 export function Details(){
   const film = useAppSelector(getFilm);
   if (!film) {
     return <NotFoundPage/>;
   }
+  const getRunTime = (time: number): string => {
+    const hours = Math.floor(time / 60);
+    const minutes = time % 60;
+    return `${hours}h ${minutes}m`;
+  };
   return (
     <div className="film-card__text film-card__row">
       <div className="film-card__text-col">
@@ -28,7 +33,7 @@ export function Details(){
       <div className="film-card__text-col">
         <p className="film-card__details-item">
           <strong className="film-card__details-name">Run Time</strong>
-          <span className="film-card__details-value">{film.runTime}</span>
+          <span className="film-card__details-value">{getRunTime(film.runTime)}</span>
         </p>
         <p className="film-card__details-item">
           <strong className="film-card__details-name">Genre</strong>

@@ -3,7 +3,7 @@ import {Header} from '@components/header/header.tsx';
 import {ReviewHeader} from '@components/header/review-header/review-header.tsx';
 import {NotFoundPage} from '@pages/not-found-page/not-found-page.tsx';
 import {useAppSelector} from '../../hooks';
-import {getFilm} from 'store/reducer/main-reducer/action.ts';
+import {getFilm} from 'store/reducer/film-reducer/action.ts';
 
 
 export function AddReviewPage() {

@@ -2,8 +2,7 @@ import {createSlice} from '@reduxjs/toolkit';
 import {DEFAULT_GENRE, Namespace, SHOWN_CARDS_COUNT} from '../../../const.ts';
 import {MainState} from 'types/state.ts';
 import {Film} from 'types/film.ts';
-// import {filmsMock} from '@mocks/films.ts';
-import {fetchFilmAction, fetchFilmsAction, fetchPromoFilmAction, fetchSimilarFilmsAction} from 'store/api-action.ts';
+import {fetchFilmsAction, fetchPromoFilmAction, fetchSimilarFilmsAction} from 'store/api-action.ts';
 
 const initialState: MainState = {
   films: [],
@@ -12,7 +11,6 @@ const initialState: MainState = {
   similarFilms: [],
   favoriteFilms: [],
   filteredFilms: [],
-  film: null,
   cardCount: 0,
   isFilmsLoaded: false,
 };
@@ -60,12 +58,6 @@ export const mainReducer = createSlice({
       })
       .addCase(fetchFilmsAction.rejected, (state) => {
         state.isFilmsLoaded = false;
-      })
-      .addCase(fetchFilmAction.fulfilled, (state, action) => {
-        state.film = action.payload;
-      })
-      .addCase(fetchFilmAction.rejected, (state) => {
-        state.film = null;
       })
       .addCase(fetchSimilarFilmsAction.fulfilled, (state, action) => {
         state.similarFilms = action.payload;

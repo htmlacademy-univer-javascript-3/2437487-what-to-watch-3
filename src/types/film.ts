@@ -12,7 +12,7 @@ export type Film = {
   isFavorite: boolean;
   director: string;
   starring: string[];
-  runTime: string;
+  runTime: number;
   description: string;
   rating: number;
   previewVideoLink: string;

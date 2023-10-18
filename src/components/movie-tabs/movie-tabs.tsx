@@ -3,12 +3,15 @@ import {Details} from '@components/movie-tabs/details/details.tsx';
 import {Reviews} from '@components/movie-tabs/reviews/reviews.tsx';
 import {Overview} from '@components/movie-tabs/overview/overview.tsx';
 import {useState} from 'react';
-import {reviews} from '@mocks/reviews.ts';
+// import {reviews} from '@mocks/reviews.ts';
 import {MovieTab} from '@components/movie-tabs/movie-tab.tsx';
+import {getReviews} from 'store/reducer/film-reducer/action.ts';
+import {useAppSelector} from '../../hooks';
 
 
 export function MovieTabs() {
   const [movieTab, setMovieTab] = useState<MovieTabEnum>(MovieTabEnum.Overview);
+  const reviews = useAppSelector(getReviews);
   const getCurrentTab = (tab: string) => {
     switch (tab) {
       case MovieTabEnum.Reviews:

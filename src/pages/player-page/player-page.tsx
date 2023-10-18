@@ -3,9 +3,9 @@ import {NotFoundPage} from '@pages/not-found-page/not-found-page.tsx';
 
 import './Player.css';
 import {useAppDispatch, useAppSelector} from '../../hooks';
-import {getFilm} from 'store/reducer/main-reducer/action.ts';
 import {useEffect} from 'react';
 import {fetchFilmAction} from 'store/api-action.ts';
+import {getFilm} from 'store/reducer/film-reducer/action.ts';
 
 export function PlayerPage() {
   const id = useParams().id || '';

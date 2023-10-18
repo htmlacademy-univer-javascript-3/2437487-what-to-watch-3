@@ -1,44 +1,31 @@
 import {ChangeEvent, FormEvent, Fragment, useRef, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
-import type {Review} from 'types/review.ts';
-import {useAppSelector} from '../../hooks';
-import {getFilm} from 'store/reducer/main-reducer/action.ts';
+import {useAppDispatch, useAppSelector} from '../../hooks';
+import {getFilm} from 'store/reducer/film-reducer/action.ts';
+import {postFilmReviewAction} from 'store/api-action.ts';
+import {NotFoundPage} from '@pages/not-found-page/not-found-page.tsx';
 
 export function ReviewForm() {
   const commentRef = useRef<HTMLTextAreaElement>(null);
   const navigate = useNavigate();
   const film = useAppSelector(getFilm);
-  const [reviewForm, setReviewForm] = useState<Review>({
-    id: 0,
-    text: '',
-    author: '',
-    date: '',
-    rating: 0,
-    filmId: film?.id || '',
-  });
+  const [filmRating, setFilmRating] = useState(0);
+  const dispatch = useAppDispatch();
+  if (!film) {
+    return <NotFoundPage/>;
+  }
   const doOnSubmit = (rating: number, comment: string) => {
-    const review: Review = {
-      id: 0,
-      text: comment,
-      author: 'somebody',
-      date: '2023-10-10',
-      rating: rating,
-      filmId: film?.id || '',
-    };
-    setReviewForm(review);
-    navigate(`/films/${film?.id || ''}`);
+    dispatch(postFilmReviewAction({filmId: film.id, rating, comment}))
+      .then(() => navigate(`/films/${film.id}`));
   };
   const handleFormSubmit = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
-    if (reviewForm.rating && commentRef.current?.value) {
-      doOnSubmit(reviewForm.rating, commentRef.current.value);
+    if (filmRating && commentRef.current?.value) {
+      doOnSubmit(filmRating, commentRef.current.value);
     }
   };
   const handleInputChange = (evt: ChangeEvent<HTMLInputElement>) => {
-    setReviewForm((prevValue) => ({
-      ...prevValue,
-      rating: Number(evt.target.value)
-    }));
+    setFilmRating(Number(evt.target.value));
   };
   return (
     <div className="add-review">
@@ -75,6 +62,8 @@ export function ReviewForm() {
             name="review-text"
             id="review-text"
             placeholder="Review text"
+            minLength={50}
+            maxLength={400}
           >
           </textarea>
           <div className="add-review__submit">

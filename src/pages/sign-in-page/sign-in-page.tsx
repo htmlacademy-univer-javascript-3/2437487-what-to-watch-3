@@ -18,6 +18,7 @@ export function SignInPage() {
   const [isInvalidEmail, setIsInvalidEmail] = useState(false);
   const [isInvalidPassword, setIsInvalidPassword] = useState(false);
   const [isError, setIsError] = useState(false);
+  const dispatch = useAppDispatch();
   if (authStatus === AuthStatus.Auth) {
     navigate(AppRoute.Main);
   }
@@ -33,7 +34,6 @@ export function SignInPage() {
     setIsInvalidPassword(!result);
     return result;
   };
-  const dispatch = useAppDispatch();
   const onSubmit = (authData: AuthData) =>
     dispatch(loginAction(authData))
       .then(() => {

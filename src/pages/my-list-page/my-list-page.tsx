@@ -2,13 +2,11 @@ import {FilmsList} from '@components/films-list/films-list.tsx';
 import {Header} from '@components/header/header.tsx';
 import {MyListHeader} from '@components/header/my-list-header/my-list-header.tsx';
 import {Footer} from '@components/footer/footer.tsx';
-import {Film} from 'types/film.ts';
+import {useAppSelector} from '../../hooks';
+import {getFilms} from 'store/reducer/main-reducer/action.ts';
 
-export type MyListPageProps = {
-  films: Film[];
-}
-
-export function MyListPage({films}: MyListPageProps) {
+export function MyListPage() {
+  const films = useAppSelector(getFilms);
   return (
     <div className="user-page">
       <Header isUserPage>

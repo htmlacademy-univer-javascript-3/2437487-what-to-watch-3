@@ -20,7 +20,7 @@ export function MovieTabs({films}: MovieTabsProps) {
       case MovieTabEnum.Details:
         return <Details films={films}/>;
       case MovieTabEnum.Overview:
-        return <Overview films={films}/>;
+        return <Overview/>;
     }
   };
   return (

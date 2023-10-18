@@ -7,13 +7,9 @@ import {PlayerPage} from '@pages/player-page/player-page.tsx';
 import {AddReviewPage} from '@pages/add-review-page/add-review-page.tsx';
 import {NotFoundPage} from '@pages/not-found-page/not-found-page.tsx';
 import {PrivateRoute} from '@components/private-route/private-route.tsx';
-import {Film} from 'types/film.ts';
 
-type AppProps = {
-  films: Film[];
-};
 
-export function App(props: AppProps) {
+export function App() {
   return (
     <BrowserRouter>
       <Routes>
@@ -23,15 +19,15 @@ export function App(props: AppProps) {
           <Route path='mylist' element=
             {
               <PrivateRoute>
-                <MyListPage {...props}/>
+                <MyListPage/>
               </PrivateRoute>
             }
           />
           <Route path='films/:id'>
-            <Route index element={<MoviePage {...props}/>}/>
-            <Route path='review' element={<AddReviewPage {...props}/>}/>
+            <Route index element={<MoviePage/>}/>
+            <Route path='review' element={<AddReviewPage/>}/>
           </Route>
-          <Route path='player/:id' element={<PlayerPage {...props}/>}/>
+          <Route path='player/:id' element={<PlayerPage/>}/>
           <Route path='error404' element={<NotFoundPage/>}/>
           <Route path='*' element={<NotFoundPage/>}/>
         </Route>

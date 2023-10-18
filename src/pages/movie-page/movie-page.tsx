@@ -5,20 +5,18 @@ import {Footer} from '@components/footer/footer.tsx';
 import {NotFoundPage} from '@pages/not-found-page/not-found-page.tsx';
 import {AddInListButton} from '@components/add-in-list-button/add-in-list-button.tsx';
 import {MovieTabs} from '@components/movie-tabs/movie-tabs.tsx';
-import {MyListPageProps} from '@pages/my-list-page/my-list-page.tsx';
 import {PlayButton} from '@components/play-button/play-button.tsx';
 import {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from '../../hooks';
-import {getFilm, getSimilarFilms} from 'store/reducer/main-reducer/action.ts';
+import {getFilm, getFilms, getSimilarFilms} from 'store/reducer/main-reducer/action.ts';
 import {fetchFilmAction, fetchSimilarFilmsAction} from 'store/api-action.ts';
 
 
-type MoviePageProps = MyListPageProps;
-
-export function MoviePage({films}: MoviePageProps) {
+export function MoviePage() {
   const id = useParams().id || '';
   const film = useAppSelector(getFilm);
   const similarFilms = useAppSelector(getSimilarFilms);
+  const films = useAppSelector(getFilms);
   const dispatch = useAppDispatch();
   useEffect(() => {
     let isMounted = true;

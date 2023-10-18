@@ -1,15 +1,12 @@
-import {Link, useParams} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {NotFoundPage} from '@pages/not-found-page/not-found-page.tsx';
-import {MyListPageProps} from '@pages/my-list-page/my-list-page.tsx';
 
 import './Player.css';
+import {useAppSelector} from '../../hooks';
+import {getFilm} from 'store/reducer/main-reducer/action.ts';
 
-type PlayerPageProps = MyListPageProps;
-
-export function PlayerPage({films}: PlayerPageProps) {
-  const {id} = useParams();
-  const filmId = Number(id);
-  const film = films.at(filmId);
+export function PlayerPage() {
+  const film = useAppSelector(getFilm);
   if (!film) {
     return <NotFoundPage/>;
   }

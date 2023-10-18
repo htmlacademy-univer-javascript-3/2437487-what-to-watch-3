@@ -1,16 +1,10 @@
-import {useParams} from 'react-router-dom';
 import React from 'react';
 import {NotFoundPage} from '@pages/not-found-page/not-found-page.tsx';
-import {Film} from 'types/film.ts';
+import {useAppSelector} from '../../../hooks';
+import {getFilm} from 'store/reducer/main-reducer/action.ts';
 
-type DetailsProps = {
-  films: Film[];
-}
-
-export function Details({films}: DetailsProps){
-  const {id} = useParams();
-  const filmId = Number(id);
-  const film = films.at(filmId);
+export function Details(){
+  const film = useAppSelector(getFilm);
   if (!film) {
     return <NotFoundPage/>;
   }

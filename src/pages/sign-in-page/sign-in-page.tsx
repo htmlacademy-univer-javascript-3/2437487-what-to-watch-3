@@ -51,8 +51,6 @@ export function SignInPage() {
       const email = emailRef.current.value;
       const password = passwordRef.current.value;
       onSubmit({login: email, password});
-    } else {
-      setIsError(true);
     }
   };
   return (

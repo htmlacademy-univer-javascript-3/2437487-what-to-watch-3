@@ -1,12 +1,27 @@
-import {Link} from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 import {NotFoundPage} from '@pages/not-found-page/not-found-page.tsx';
 
 import './Player.css';
-import {useAppSelector} from '../../hooks';
+import {useAppDispatch, useAppSelector} from '../../hooks';
 import {getFilm} from 'store/reducer/main-reducer/action.ts';
+import {useEffect} from 'react';
+import {fetchFilmAction} from 'store/api-action.ts';
 
 export function PlayerPage() {
+  const id = useParams().id || '';
   const film = useAppSelector(getFilm);
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    let isMounted = true;
+    if (isMounted) {
+      if (!film || film.id !== id) {
+        dispatch(fetchFilmAction(id));
+      }
+    }
+    return () => {
+      isMounted = false;
+    };
+  }, [id, film, dispatch]);
   if (!film) {
     return <NotFoundPage/>;
   }

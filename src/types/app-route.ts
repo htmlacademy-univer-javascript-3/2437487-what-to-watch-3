@@ -4,4 +4,8 @@ export const AppRoute = {
   SignOut: '/logout',
   MyList: '/mylist',
   Error404: '/error404',
+  Film: '/films/:id',
+  Player: '/player/:id',
+  FilmReview: 'review',
+  Default: '*',
 } as const;

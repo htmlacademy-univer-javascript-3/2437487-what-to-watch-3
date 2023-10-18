@@ -14,19 +14,19 @@ export function ReviewForm() {
     author: '',
     date: '',
     rating: 0,
-    filmId: film.id,
+    filmId: film?.id || '',
   });
   const doOnSubmit = (rating: number, comment: string) => {
     const review: Review = {
-      id: film.id,
+      id: 0,
       text: comment,
       author: 'somebody',
       date: '2023-10-10',
       rating: rating,
-      filmId: film.id,
+      filmId: film?.id || '',
     };
     setReviewForm(review);
-    navigate(`/films/${film.id}`);
+    navigate(`/films/${film?.id || ''}`);
   };
   const handleFormSubmit = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();

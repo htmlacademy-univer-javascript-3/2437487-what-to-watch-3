@@ -5,32 +5,30 @@ import {Footer} from '@components/footer/footer.tsx';
 import {NotFoundPage} from '@pages/not-found-page/not-found-page.tsx';
 import {AddInListButton} from '@components/add-in-list-button/add-in-list-button.tsx';
 import {MovieTabs} from '@components/movie-tabs/movie-tabs.tsx';
-import {MyListPageProps} from '@pages/my-list-page/my-list-page.tsx';
 import {PlayButton} from '@components/play-button/play-button.tsx';
 import {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from '../../hooks';
-import {changeFilmById, getFilm, getSimilarFilms} from 'store/reducer/main-reducer/action.ts';
+import {getFilm, getSimilarFilms} from 'store/reducer/main-reducer/action.ts';
+import {fetchFilmAction, fetchSimilarFilmsAction} from 'store/api-action.ts';
 
 
-type MoviePageProps = MyListPageProps;
-
-export function MoviePage({films}: MoviePageProps) {
-  const {id} = useParams();
-  const filmId = Number(id);
+export function MoviePage() {
+  const id = useParams().id || '';
   const film = useAppSelector(getFilm);
   const similarFilms = useAppSelector(getSimilarFilms);
   const dispatch = useAppDispatch();
   useEffect(() => {
     let isMounted = true;
     if (isMounted) {
-      if (!film || film.id !== filmId) {
-        dispatch(changeFilmById(filmId));
+      if (!film || film.id !== id) {
+        dispatch(fetchFilmAction(id));
+        dispatch(fetchSimilarFilmsAction(id));
       }
     }
     return () => {
       isMounted = false;
     };
-  }, [filmId, film, dispatch]);
+  }, [id, film, dispatch]);
   if (!film) {
     return <NotFoundPage/>;
   }
@@ -39,7 +37,7 @@ export function MoviePage({films}: MoviePageProps) {
       <section className="film-card film-card--full">
         <div className="film-card__hero">
           <div className="film-card__bg">
-            <img src={film.background} alt={film.name}/>
+            <img src={film.backgroundImage} alt={film.name}/>
           </div>
 
           <Header/>
@@ -64,10 +62,10 @@ export function MoviePage({films}: MoviePageProps) {
         <div className="film-card__wrap film-card__translate-top">
           <div className="film-card__info">
             <div className="film-card__poster film-card__poster--big">
-              <img src={film.poster} alt={`${film.name} poster`} width="218" height="327"/>
+              <img src={film.posterImage} alt={`${film.name} poster`} width="218" height="327"/>
             </div>
 
-            <MovieTabs films={films}/>
+            <MovieTabs/>
           </div>
         </div>
       </section>

@@ -42,6 +42,9 @@
       "store/*": [
         "./src/store/*"
       ],
+      "services/*": [
+        "./src/services/*"
+      ],
     },
   },
   "include": ["src", "vite.config.ts"],

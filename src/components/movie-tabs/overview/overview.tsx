@@ -1,15 +1,10 @@
-import {useParams} from 'react-router-dom';
 import {formatNumber} from '@components/movie-tabs/movie-tabs.ts';
 import {NotFoundPage} from '@pages/not-found-page/not-found-page.tsx';
-import {Film} from 'types/film.ts';
+import {useAppSelector} from '../../../hooks';
+import {getFilm} from 'store/reducer/main-reducer/action.ts';
 
-type OverviewProps = {
-  films: Film[];
-}
-export function Overview({films}: OverviewProps) {
-  const {id} = useParams();
-  const filmId = Number(id);
-  const film = films.at(filmId);
+export function Overview() {
+  const film = useAppSelector(getFilm);
   if (!film) {
     return <NotFoundPage/>;
   }

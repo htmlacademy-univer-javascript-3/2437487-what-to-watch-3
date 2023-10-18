@@ -8,7 +8,7 @@ import {MovieTabs} from '@components/movie-tabs/movie-tabs.tsx';
 import {PlayButton} from '@components/play-button/play-button.tsx';
 import {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from '../../hooks';
-import {getFilm, getFilms, getSimilarFilms} from 'store/reducer/main-reducer/action.ts';
+import {getFilm, getSimilarFilms} from 'store/reducer/main-reducer/action.ts';
 import {fetchFilmAction, fetchSimilarFilmsAction} from 'store/api-action.ts';
 
 
@@ -16,7 +16,6 @@ export function MoviePage() {
   const id = useParams().id || '';
   const film = useAppSelector(getFilm);
   const similarFilms = useAppSelector(getSimilarFilms);
-  const films = useAppSelector(getFilms);
   const dispatch = useAppDispatch();
   useEffect(() => {
     let isMounted = true;
@@ -66,7 +65,7 @@ export function MoviePage() {
               <img src={film.posterImage} alt={`${film.name} poster`} width="218" height="327"/>
             </div>
 
-            <MovieTabs films={films}/>
+            <MovieTabs/>
           </div>
         </div>
       </section>

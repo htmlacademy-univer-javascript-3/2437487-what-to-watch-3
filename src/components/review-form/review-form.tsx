@@ -67,7 +67,13 @@ export function ReviewForm() {
           >
           </textarea>
           <div className="add-review__submit">
-            <button className="add-review__btn" type="submit">Post</button>
+            <button
+              className="add-review__btn"
+              type="submit"
+              disabled={!filmRating || !commentRef.current?.value || commentRef.current?.value.length < 50 || commentRef.current?.value.length > 400}
+            >
+              Post
+            </button>
           </div>
 
         </div>

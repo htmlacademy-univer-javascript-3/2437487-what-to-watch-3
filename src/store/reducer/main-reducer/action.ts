@@ -20,3 +20,6 @@ export const changeFilmById = (id: number) => ({
   type: `${Namespace.Main}/changeFilmById`,
   payload: id,
 });
+export const increaseCardCount = () => ({
+  type: `${Namespace.Main}/increaseCardCount`,
+});

@@ -3,7 +3,6 @@ import {Film} from 'types/film.ts';
 import {State} from 'types/state.ts';
 
 export const getFilms = (state: State): Film[] => state[Namespace.Main].films;
-export const getFilm = (state: State): Film | null => state[Namespace.Main].film;
 export const getFilteredFilms = (state: State): Film[] => state[Namespace.Main].filteredFilms;
 export const getSimilarFilms = (state: State): Film[] => state[Namespace.Main].similarFilms;
 export const getPromoFilm = (state: State): Film | null => state[Namespace.Main].promoFilm;

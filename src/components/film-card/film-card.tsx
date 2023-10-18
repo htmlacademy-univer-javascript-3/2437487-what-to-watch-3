@@ -14,7 +14,7 @@ export function FilmCard({film}: FilmCardProps) {
     let needUpdate = true;
 
     if (needVideoToPlay) {
-      setTimeout(() => needUpdate && setVideoIsPlaying(true), 500);
+      setTimeout(() => needUpdate && setVideoIsPlaying(true), 1000);
     }
 
     return () => {

@@ -8,8 +8,11 @@ import {MovieTabs} from '@components/movie-tabs/movie-tabs.tsx';
 import {PlayButton} from '@components/play-button/play-button.tsx';
 import {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from '../../hooks';
-import {getFilm, getSimilarFilms} from 'store/reducer/main-reducer/action.ts';
-import {fetchFilmAction, fetchSimilarFilmsAction} from 'store/api-action.ts';
+import {getSimilarFilms} from 'store/reducer/main-reducer/action.ts';
+import {fetchFilmAction, fetchFilmReviewsAction, fetchSimilarFilmsAction} from 'store/api-action.ts';
+import {getFilm} from 'store/reducer/film-reducer/action.ts';
+import {getAuthStatus} from 'store/reducer/user-reducer/action.ts';
+import {AuthStatus} from 'types/auth-status.ts';
 
 
 export function MoviePage() {
@@ -17,9 +20,11 @@ export function MoviePage() {
   const film = useAppSelector(getFilm);
   const similarFilms = useAppSelector(getSimilarFilms);
   const dispatch = useAppDispatch();
+  const authStatus = useAppSelector(getAuthStatus);
   useEffect(() => {
     let isMounted = true;
     if (isMounted) {
+      dispatch(fetchFilmReviewsAction(id));
       if (!film || film.id !== id) {
         dispatch(fetchFilmAction(id));
         dispatch(fetchSimilarFilmsAction(id));
@@ -52,8 +57,11 @@ export function MoviePage() {
 
               <div className="film-card__buttons">
                 <PlayButton film={film}/>
-                <AddInListButton film={film}/>
-                <Link to={`/films/${film.id}/review/`} className="btn film-card__button">Add review</Link>
+                {authStatus === AuthStatus.Auth &&
+                  <>
+                    <AddInListButton film={film}/>
+                    <Link to={`/films/${film.id}/review/`} className="btn film-card__button">Add review</Link>
+                  </>}
               </div>
             </div>
           </div>

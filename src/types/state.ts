@@ -2,6 +2,7 @@ import {Film} from 'types/film.ts';
 import {store} from 'store';
 import {User} from 'types/user.ts';
 import {AuthStatus} from 'types/auth-status.ts';
+import {Review} from 'types/review.ts';
 
 export type State = ReturnType<typeof store.getState>;
 
@@ -14,7 +15,6 @@ export type MainState = {
   similarFilms: Film[];
   favoriteFilms: Film[];
   filteredFilms: Film[];
-  film: Film | null;
   cardCount: number;
   isFilmsLoaded: boolean;
 }
@@ -22,4 +22,9 @@ export type MainState = {
 export type UserState = {
   user: User | null;
   authStatus: AuthStatus;
+}
+
+export type FilmState = {
+  film: Film | null;
+  reviews: Review[];
 }

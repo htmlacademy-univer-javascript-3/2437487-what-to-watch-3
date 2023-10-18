@@ -1,5 +1,5 @@
-export const AuthStatus = {
-  Auth: 'auth',
-  NoAuth: 'no_auth',
-  Unknown: 'unknown',
-} as const;
+export enum AuthStatus {
+  Auth = 'auth',
+  NoAuth = 'no_auth',
+  Unknown = 'unknown',
+}

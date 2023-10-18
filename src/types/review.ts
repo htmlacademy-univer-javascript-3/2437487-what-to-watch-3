@@ -4,5 +4,5 @@ export type Review = {
   author: string;
   date: string;
   rating: number;
-  filmId: string;
+  filmId?: string;
 }

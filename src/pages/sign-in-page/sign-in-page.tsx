@@ -2,7 +2,7 @@ import {Header} from '@components/header/header.tsx';
 import {Footer} from '@components/footer/footer.tsx';
 import {useRef, useState} from 'react';
 import {useAppDispatch, useAppSelector} from '../../hooks';
-import {getAuthStatus} from 'store/reducer/user-reducer/action.ts';
+import {getAuthStatus} from 'store/reducer/user-reducer/selectors.ts';
 import {useNavigate} from 'react-router-dom';
 import {AuthStatus} from 'types/auth-status.ts';
 import {AppRoute} from 'types/app-route.ts';

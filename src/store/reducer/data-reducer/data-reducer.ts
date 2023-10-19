@@ -1,10 +1,10 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {DEFAULT_GENRE, Namespace, SHOWN_CARDS_COUNT} from '../../../const.ts';
-import {MainState} from 'types/state.ts';
+import {DEFAULT_GENRE, NameSpace, SHOWN_CARDS_COUNT} from '../../../const.ts';
+import {DataState} from 'types/state.ts';
 import {Film} from 'types/film.ts';
 import {fetchFilmsAction, fetchPromoFilmAction, fetchSimilarFilmsAction} from 'store/api-action.ts';
 
-const initialState: MainState = {
+const initialState: DataState = {
   films: [],
   promoFilm: null,
   currentGenre: DEFAULT_GENRE,
@@ -12,7 +12,8 @@ const initialState: MainState = {
   favoriteFilms: [],
   filteredFilms: [],
   cardCount: 0,
-  isFilmsLoaded: false,
+  isFilmsLoading: false,
+  hasError: false,
 };
 
 const filterFilms = (films: Film[], genre: string): Film[] => {
@@ -22,8 +23,8 @@ const filterFilms = (films: Film[], genre: string): Film[] => {
   return films.filter((film) => film.genre === genre);
 };
 
-export const mainReducer = createSlice({
-  name: Namespace.Main,
+export const dataReducer = createSlice({
+  name: NameSpace.Data,
   initialState: initialState,
   reducers: {
     changeGenre: (state, action: {payload: string}) => {
@@ -46,7 +47,8 @@ export const mainReducer = createSlice({
   extraReducers(builder) {
     builder
       .addCase(fetchFilmsAction.pending, (state) => {
-        state.isFilmsLoaded = false;
+        state.isFilmsLoading = true;
+        state.hasError = false;
       })
       .addCase(fetchFilmsAction.fulfilled, (state, action) => {
         state.films = action.payload;
@@ -54,10 +56,11 @@ export const mainReducer = createSlice({
         state.promoFilm = action.payload[0];
         state.similarFilms = action.payload;
         state.cardCount = action.payload.length > SHOWN_CARDS_COUNT ? SHOWN_CARDS_COUNT : action.payload.length;
-        state.isFilmsLoaded = true;
+        state.isFilmsLoading = false;
       })
       .addCase(fetchFilmsAction.rejected, (state) => {
-        state.isFilmsLoaded = false;
+        state.isFilmsLoading = false;
+        state.hasError = true;
       })
       .addCase(fetchSimilarFilmsAction.fulfilled, (state, action) => {
         state.similarFilms = action.payload;

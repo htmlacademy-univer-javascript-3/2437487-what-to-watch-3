@@ -4,7 +4,7 @@ import {Footer} from '@components/footer/footer.tsx';
 import {ShowMoreButton} from '@components/show-more-button/show-more-button.tsx';
 import {AddInListButton} from '@components/add-in-list-button/add-in-list-button.tsx';
 import {PlayButton} from '@components/play-button/play-button.tsx';
-import {getCardCount, getFilteredFilms, getPromoFilm} from 'store/reducer/main-reducer/action.ts';
+import {getCardCount, getFilteredFilms, getPromoFilm} from 'store/reducer/data-reducer/selectors.ts';
 import {useAppSelector} from '../../hooks';
 import {GenresList} from '@components/genres-list/genres-list.tsx';
 
@@ -39,8 +39,8 @@ export function MainPage() {
               </p>
 
               <div className="film-card__buttons">
-                <PlayButton film={promoFilm}/>
-                <AddInListButton film={promoFilm}/>
+                <PlayButton filmId={promoFilm.id}/>
+                <AddInListButton isFavorite={promoFilm.isFavorite}/>
               </div>
             </div>
           </div>

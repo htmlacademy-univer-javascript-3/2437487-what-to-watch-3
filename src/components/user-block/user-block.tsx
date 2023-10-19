@@ -2,7 +2,7 @@ import {AuthStatus} from 'types/auth-status.ts';
 import {Link} from 'react-router-dom';
 import {AppRoute} from 'types/app-route.ts';
 import {useAppDispatch, useAppSelector} from '../../hooks';
-import {getAuthStatus, getUser} from 'store/reducer/user-reducer/action.ts';
+import {getAuthStatus, getUser} from 'store/reducer/user-reducer/selectors.ts';
 import {logoutAction} from 'store/api-action.ts';
 import {MouseEvent} from 'react';
 

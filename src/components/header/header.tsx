@@ -1,6 +1,6 @@
 import {Logo} from '@components/logo/logo.tsx';
 import {UserBlock} from '@components/user-block/user-block.tsx';
-import React, {ReactNode} from 'react';
+import React, {memo, ReactNode} from 'react';
 
 type HeaderProps = {
   children?: ReactNode;
@@ -8,7 +8,7 @@ type HeaderProps = {
   isSignInPage?: boolean;
 }
 
-export function Header({children, isUserPage = false, isSignInPage = false}: React.PropsWithChildren<HeaderProps>) {
+export function HeaderComponent({children, isUserPage = false, isSignInPage = false}: React.PropsWithChildren<HeaderProps>) {
   return (
     <>
       <h1 className="visually-hidden">WTW</h1>
@@ -21,3 +21,5 @@ export function Header({children, isUserPage = false, isSignInPage = false}: Rea
     </>
   );
 }
+
+export const Header = memo(HeaderComponent);

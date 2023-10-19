@@ -1,33 +1,19 @@
-import {useAppDispatch, useAppSelector} from '../../hooks';
-import {changeGenre, getCurrentGenre, getFilms} from 'store/reducer/main-reducer/action.ts';
+import {useAppSelector} from '../../hooks';
+import {getFilms} from 'store/reducer/data-reducer/selectors.ts';
 import {getGenres} from '@components/genres-list/genres-list.ts';
-import {MouseEvent} from 'react';
+import {useMemo} from 'react';
+import {GenreItem} from '@components/genre-item/genre-item.tsx';
 
 export function GenresList() {
-  const dispatch = useAppDispatch();
-  const currentGenre = useAppSelector(getCurrentGenre);
-  const films = useAppSelector(getFilms);
-  const genres = getGenres(films);
 
-  const handleClick = (evt: MouseEvent<HTMLAnchorElement>, genre: string) => {
-    evt.preventDefault();
-    dispatch(changeGenre(genre));
-  };
+  const films = useAppSelector(getFilms);
+  const genres = useMemo(() => getGenres(films), [films]);
+
+
   return (
     <ul className="catalog__genres-list">
       {
-        genres.map((genre) => (
-          <li key={genre}
-            className={`catalog__genres-item ${genre === currentGenre ? 'catalog__genres-item--active' : ''}`}
-          >
-            <a href="/"
-              className="catalog__genres-link"
-              onClick={(evt) => handleClick(evt, genre)}
-            >
-              {genre}
-            </a>
-          </li>
-        )).slice(0, 10)
+        genres.slice(0, 10).map((genre) => <GenreItem key={genre} genre={genre}/>)
       }
     </ul>
   );

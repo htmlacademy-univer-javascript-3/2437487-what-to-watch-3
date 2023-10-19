@@ -1,7 +1,7 @@
 import {formatNumber} from '@components/movie-tabs/movie-tabs.ts';
 import {NotFoundPage} from '@pages/not-found-page/not-found-page.tsx';
 import {useAppSelector} from '../../../hooks';
-import {getFilm} from 'store/reducer/film-reducer/action.ts';
+import {getFilm} from 'store/reducer/film-reducer/selectors.ts';
 
 export function Overview() {
   const film = useAppSelector(getFilm);

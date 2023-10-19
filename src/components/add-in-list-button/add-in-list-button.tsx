@@ -1,13 +1,14 @@
-import {Film} from 'types/film.ts';
+import {memo} from 'react';
 
 type AddInListButtonProps = {
-  film: Film;
+  isFavorite: boolean;
 }
-export function AddInListButton({film}: AddInListButtonProps) {
+
+export function AddInListButtonComponent({isFavorite}: AddInListButtonProps) {
   return (
     <button className="btn btn--list film-card__button" type="button">
       {
-        film.isFavorite ?
+        isFavorite ?
           (
             <svg viewBox="0 0 18 14" width="18" height="14">
               <use xlinkHref="#in-list"></use>
@@ -24,3 +25,5 @@ export function AddInListButton({film}: AddInListButtonProps) {
     </button>
   );
 }
+
+export const AddInListButton = memo(AddInListButtonComponent);

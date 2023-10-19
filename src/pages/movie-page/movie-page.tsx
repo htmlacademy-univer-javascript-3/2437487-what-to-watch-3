@@ -8,10 +8,10 @@ import {MovieTabs} from '@components/movie-tabs/movie-tabs.tsx';
 import {PlayButton} from '@components/play-button/play-button.tsx';
 import {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from '../../hooks';
-import {getSimilarFilms} from 'store/reducer/main-reducer/action.ts';
+import {getSimilarFilms} from 'store/reducer/data-reducer/selectors.ts';
 import {fetchFilmAction, fetchFilmReviewsAction, fetchSimilarFilmsAction} from 'store/api-action.ts';
-import {getFilm} from 'store/reducer/film-reducer/action.ts';
-import {getAuthStatus} from 'store/reducer/user-reducer/action.ts';
+import {getFilm} from 'store/reducer/film-reducer/selectors.ts';
+import {getAuthStatus} from 'store/reducer/user-reducer/selectors.ts';
 import {AuthStatus} from 'types/auth-status.ts';
 
 
@@ -56,10 +56,10 @@ export function MoviePage() {
               </p>
 
               <div className="film-card__buttons">
-                <PlayButton film={film}/>
+                <PlayButton filmId={film.id}/>
                 {authStatus === AuthStatus.Auth &&
                   <>
-                    <AddInListButton film={film}/>
+                    <AddInListButton isFavorite={film.isFavorite}/>
                     <Link to={`/films/${film.id}/review/`} className="btn film-card__button">Add review</Link>
                   </>}
               </div>

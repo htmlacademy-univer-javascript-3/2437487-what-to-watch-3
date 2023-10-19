@@ -39,8 +39,8 @@ export function MainPage() {
               </p>
 
               <div className="film-card__buttons">
-                <PlayButton film={promoFilm}/>
-                <AddInListButton film={promoFilm}/>
+                <PlayButton filmId={promoFilm.id}/>
+                <AddInListButton isFavorite={promoFilm.isFavorite}/>
               </div>
             </div>
           </div>

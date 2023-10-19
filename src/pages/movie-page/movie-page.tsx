@@ -56,10 +56,10 @@ export function MoviePage() {
               </p>
 
               <div className="film-card__buttons">
-                <PlayButton film={film}/>
+                <PlayButton filmId={film.id}/>
                 {authStatus === AuthStatus.Auth &&
                   <>
-                    <AddInListButton film={film}/>
+                    <AddInListButton isFavorite={film.isFavorite}/>
                     <Link to={`/films/${film.id}/review/`} className="btn film-card__button">Add review</Link>
                   </>}
               </div>

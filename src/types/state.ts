@@ -8,7 +8,7 @@ export type State = ReturnType<typeof store.getState>;
 
 export type AppDispatch = typeof store.dispatch;
 
-export type MainState = {
+export type DataState = {
   films: Film[];
   promoFilm: Film | null;
   currentGenre: string;
@@ -16,7 +16,8 @@ export type MainState = {
   favoriteFilms: Film[];
   filteredFilms: Film[];
   cardCount: number;
-  isFilmsLoaded: boolean;
+  isFilmsLoading: boolean;
+  hasError: boolean;
 }
 
 export type UserState = {

@@ -8,16 +8,26 @@ import {AddReviewPage} from '@pages/add-review-page/add-review-page.tsx';
 import {NotFoundPage} from '@pages/not-found-page/not-found-page.tsx';
 import {PrivateRoute} from '@components/private-route/private-route.tsx';
 import {AppRoute} from 'types/app-route.ts';
-import {useAppSelector} from 'hooks';
+import {useAppSelector} from '../../hooks';
 import {getAuthCheckedStatus, getAuthStatus} from 'store/reducer/user-reducer/selectors.ts';
 import {Loader} from '@components/loader/loader.tsx';
+import {getFilmsErrorStatus, getFilmsLoadingStatus} from 'store/reducer/data-reducer/selectors.ts';
 
 
 export function App() {
   const authStatus = useAppSelector(getAuthStatus);
   const isAuthChecked = useAppSelector(getAuthCheckedStatus);
-  if (!isAuthChecked) {
-    return <Loader text="Checking authorization status..."/>;
+  const isFilmsLoading = useAppSelector(getFilmsLoadingStatus);
+  const hasError = useAppSelector(getFilmsErrorStatus);
+  if (!isAuthChecked || isFilmsLoading) {
+    return (
+      <Loader text="Loading..."/>
+    );
+  }
+  if (hasError) {
+    return (
+      <NotFoundPage/>
+    );
   }
   return (
     <BrowserRouter>

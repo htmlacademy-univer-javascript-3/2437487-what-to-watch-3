@@ -2,7 +2,12 @@ import {createSlice} from '@reduxjs/toolkit';
 import {DEFAULT_GENRE, NameSpace, SHOWN_CARDS_COUNT} from '../../../const.ts';
 import {DataState} from 'types/state.ts';
 import {Film} from 'types/film.ts';
-import {fetchFilmsAction, fetchPromoFilmAction, fetchSimilarFilmsAction} from 'store/api-action.ts';
+import {
+  fetchFavoriteFilmsAction,
+  fetchFilmsAction,
+  fetchPromoFilmAction,
+  fetchSimilarFilmsAction
+} from 'store/api-action.ts';
 
 const initialState: DataState = {
   films: [],
@@ -67,6 +72,12 @@ export const dataReducer = createSlice({
       })
       .addCase(fetchSimilarFilmsAction.rejected, (state) => {
         state.similarFilms = [];
+      })
+      .addCase(fetchFavoriteFilmsAction.fulfilled, (state, action) => {
+        state.favoriteFilms = action.payload;
+      })
+      .addCase(fetchFavoriteFilmsAction.rejected, (state) => {
+        state.favoriteFilms = [];
       })
       .addCase(fetchPromoFilmAction.fulfilled, (state, action) => {
         state.promoFilm = action.payload;

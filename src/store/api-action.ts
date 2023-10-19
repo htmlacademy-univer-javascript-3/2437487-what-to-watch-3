@@ -59,6 +59,22 @@ export const fetchSimilarFilmsAction = createAsyncThunk<Film[], string, ApiConfi
   },
 );
 
+export const fetchFavoriteFilmsAction = createAsyncThunk<Film[], undefined, ApiConfig>(
+  'data/fetchFavoriteFilms',
+  async (_arg, { extra: api}) => {
+    const { data } = await api.get<Film[]>('favorite');
+    return data;
+  },
+);
+
+export const postFavoriteFilmAction = createAsyncThunk<Film, { filmId: string; status: boolean }, ApiConfig>(
+  'data/postFavoriteFilm',
+  async ({ filmId, status }, { extra: api}) => {
+    const { data } = await api.post<Film>(`favorite/${filmId}/${status ? 1 : 0}`);
+    return data;
+  }
+);
+
 export const checkAuthAction = createAsyncThunk<User, undefined, ApiConfig>(
   'user/checkAuth',
   async (_arg, { extra: api}) => {

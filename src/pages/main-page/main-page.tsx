@@ -40,7 +40,7 @@ export function MainPage() {
 
               <div className="film-card__buttons">
                 <PlayButton filmId={promoFilm.id}/>
-                <AddInListButton isFavorite={promoFilm.isFavorite}/>
+                <AddInListButton filmId={promoFilm.id} isFavorite={promoFilm.isFavorite}/>
               </div>
             </div>
           </div>

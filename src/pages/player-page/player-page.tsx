@@ -5,7 +5,7 @@ import './Player.css';
 import {useAppDispatch, useAppSelector} from '../../hooks';
 import {useEffect} from 'react';
 import {fetchFilmAction} from 'store/api-action.ts';
-import {getFilm} from 'store/reducer/film-reducer/action.ts';
+import {getFilm} from 'store/reducer/film-reducer/selectors.ts';
 
 export function PlayerPage() {
   const id = useParams().id || '';

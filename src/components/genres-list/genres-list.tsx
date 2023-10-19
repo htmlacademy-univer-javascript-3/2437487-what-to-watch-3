@@ -1,5 +1,5 @@
 import {useAppDispatch, useAppSelector} from '../../hooks';
-import {changeGenre, getCurrentGenre, getFilms} from 'store/reducer/main-reducer/action.ts';
+import {changeGenre, getCurrentGenre, getFilms} from 'store/reducer/data-reducer/selectors.ts';
 import {getGenres} from '@components/genres-list/genres-list.ts';
 import {MouseEvent} from 'react';
 

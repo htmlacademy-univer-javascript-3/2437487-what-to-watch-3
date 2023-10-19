@@ -1,5 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {DEFAULT_GENRE, Namespace, SHOWN_CARDS_COUNT} from '../../../const.ts';
+import {DEFAULT_GENRE, NameSpace, SHOWN_CARDS_COUNT} from '../../../const.ts';
 import {MainState} from 'types/state.ts';
 import {Film} from 'types/film.ts';
 import {fetchFilmsAction, fetchPromoFilmAction, fetchSimilarFilmsAction} from 'store/api-action.ts';
@@ -22,8 +22,8 @@ const filterFilms = (films: Film[], genre: string): Film[] => {
   return films.filter((film) => film.genre === genre);
 };
 
-export const mainReducer = createSlice({
-  name: Namespace.Main,
+export const dataReducer = createSlice({
+  name: NameSpace.Data,
   initialState: initialState,
   reducers: {
     changeGenre: (state, action: {payload: string}) => {

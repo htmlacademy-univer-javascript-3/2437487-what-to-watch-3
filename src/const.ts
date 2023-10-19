@@ -1,5 +1,5 @@
-export enum Namespace {
-  Main = 'MAIN',
+export enum NameSpace {
+  Data = 'DATA',
   User = 'USER',
   Film = 'FILM',
 }

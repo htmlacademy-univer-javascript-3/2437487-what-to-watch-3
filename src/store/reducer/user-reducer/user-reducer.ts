@@ -1,5 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {Namespace} from '../../../const.ts';
+import {NameSpace} from '../../../const.ts';
 import {UserState} from 'types/state.ts';
 import {checkAuthAction, loginAction, logoutAction} from 'store/api-action.ts';
 import {AuthStatus} from 'types/auth-status.ts';
@@ -11,7 +11,7 @@ const initialState: UserState = {
 };
 
 export const userReducer = createSlice({
-  name: Namespace.User,
+  name: NameSpace.User,
   initialState: initialState,
   reducers: {},
   extraReducers(builder) {

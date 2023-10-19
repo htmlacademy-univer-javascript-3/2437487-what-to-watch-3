@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom';
 import {AppRoute} from 'types/app-route.ts';
 import {useAppDispatch} from '../../hooks';
-import {resetMainPage} from 'store/reducer/main-reducer/action.ts';
+import {resetMainPage} from 'store/reducer/data-reducer/selectors.ts';
 
 type LogoProps = {
   isLight?: boolean;

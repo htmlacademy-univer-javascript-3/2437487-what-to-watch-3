@@ -1,7 +1,7 @@
 import {ChangeEvent, FormEvent, Fragment, useRef, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {useAppDispatch, useAppSelector} from '../../hooks';
-import {getFilm} from 'store/reducer/film-reducer/action.ts';
+import {getFilm} from 'store/reducer/film-reducer/selectors.ts';
 import {postFilmReviewAction} from 'store/api-action.ts';
 import {NotFoundPage} from '@pages/not-found-page/not-found-page.tsx';
 

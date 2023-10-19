@@ -5,7 +5,7 @@ import {Overview} from '@components/movie-tabs/overview/overview.tsx';
 import {useState} from 'react';
 // import {reviews} from '@mocks/reviews.ts';
 import {MovieTab} from '@components/movie-tabs/movie-tab.tsx';
-import {getReviews} from 'store/reducer/film-reducer/action.ts';
+import {getReviews} from 'store/reducer/film-reducer/selectors.ts';
 import {useAppSelector} from '../../hooks';
 
 

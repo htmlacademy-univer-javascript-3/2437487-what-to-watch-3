@@ -5,16 +5,24 @@ import {ShowMoreButton} from '@components/show-more-button/show-more-button.tsx'
 import {AddInListButton} from '@components/add-in-list-button/add-in-list-button.tsx';
 import {PlayButton} from '@components/play-button/play-button.tsx';
 import {getCardCount, getFilteredFilms, getPromoFilm} from 'store/reducer/data-reducer/selectors.ts';
-import {useAppSelector} from '../../hooks';
+import {useAppDispatch, useAppSelector} from '../../hooks';
 import {GenresList} from '@components/genres-list/genres-list.tsx';
+import {fetchFavoriteFilmsAction, fetchPromoFilmAction} from 'store/api-action.ts';
+import {useEffect} from 'react';
+import {NotFoundPage} from '@pages/not-found-page/not-found-page.tsx';
 
 
 export function MainPage() {
   const cardCount = useAppSelector(getCardCount);
   const promoFilm = useAppSelector(getPromoFilm);
   const films = useAppSelector(getFilteredFilms);
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(fetchFavoriteFilmsAction());
+    dispatch(fetchPromoFilmAction());
+  }, [dispatch, promoFilm]);
   if (!promoFilm) {
-    return null;
+    return <NotFoundPage/>;
   }
   return (
     <>
@@ -40,7 +48,7 @@ export function MainPage() {
 
               <div className="film-card__buttons">
                 <PlayButton filmId={promoFilm.id}/>
-                <AddInListButton isFavorite={promoFilm.isFavorite}/>
+                <AddInListButton filmId={promoFilm.id} isFavorite={promoFilm.isFavorite}/>
               </div>
             </div>
           </div>

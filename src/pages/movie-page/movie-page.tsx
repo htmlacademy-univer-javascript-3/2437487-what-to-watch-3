@@ -25,8 +25,8 @@ export function MoviePage() {
     let isMounted = true;
     if (isMounted) {
       dispatch(fetchFilmReviewsAction(id));
+      dispatch(fetchFilmAction(id));
       if (!film || film.id !== id) {
-        dispatch(fetchFilmAction(id));
         dispatch(fetchSimilarFilmsAction(id));
       }
     }
@@ -57,11 +57,8 @@ export function MoviePage() {
 
               <div className="film-card__buttons">
                 <PlayButton filmId={film.id}/>
-                {authStatus === AuthStatus.Auth &&
-                  <>
-                    <AddInListButton isFavorite={film.isFavorite}/>
-                    <Link to={`/films/${film.id}/review/`} className="btn film-card__button">Add review</Link>
-                  </>}
+                <AddInListButton filmId={film.id} isFavorite={film.isFavorite}/>
+                {authStatus === AuthStatus.Auth && <Link to={`/films/${film.id}/review/`} className="btn film-card__button">Add review</Link>}
               </div>
             </div>
           </div>

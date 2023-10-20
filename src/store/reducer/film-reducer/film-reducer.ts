@@ -1,7 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit';
 import {NameSpace} from '../../../const.ts';
 import {FilmState} from 'types/state.ts';
-import {fetchFilmAction, fetchFilmReviewsAction} from 'store/api-action.ts';
+import {fetchFilmAction, fetchFilmReviewsAction, postFavoriteFilmAction} from 'store/api-action.ts';
 
 const initialState: FilmState = {
   film: null,
@@ -25,6 +25,9 @@ export const filmReducer = createSlice({
       })
       .addCase(fetchFilmReviewsAction.rejected, (state) => {
         state.reviews = [];
+      })
+      .addCase(postFavoriteFilmAction.fulfilled, (state, action) => {
+        state.film = action.payload;
       });
   },
 });

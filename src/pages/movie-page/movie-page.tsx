@@ -25,8 +25,8 @@ export function MoviePage() {
     let isMounted = true;
     if (isMounted) {
       dispatch(fetchFilmReviewsAction(id));
+      dispatch(fetchFilmAction(id));
       if (!film || film.id !== id) {
-        dispatch(fetchFilmAction(id));
         dispatch(fetchSimilarFilmsAction(id));
       }
     }

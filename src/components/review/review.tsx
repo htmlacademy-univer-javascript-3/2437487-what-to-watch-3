@@ -1,5 +1,5 @@
 import type {Review} from 'types/review.ts';
-import {formatNumber} from '@components/movie-tabs/movie-tabs.ts';
+import {formatNumber} from '../../utils/formatNumber.ts';
 
 type ReviewProps = {
   review: Review;

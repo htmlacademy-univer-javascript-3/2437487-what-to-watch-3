@@ -3,4 +3,3 @@ export const formatNumber = (num: number | undefined) => num?.toLocaleString('en
   minimumFractionDigits: 1,
   maximumFractionDigits: 1,
 }).replace('.', ',');
-

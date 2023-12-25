@@ -2,6 +2,7 @@ import type {Film} from 'types/film.ts';
 import {Link} from 'react-router-dom';
 import {useEffect, useState} from 'react';
 import {VideoPlayer} from '@components/video-player/video-player.tsx';
+import {NEED_VIDEO_TO_PLAY_DELAY} from '../../const.ts';
 
 type FilmCardProps = {
   film: Film;
@@ -14,7 +15,7 @@ export function FilmCard({film}: FilmCardProps) {
     let needUpdate = true;
 
     if (needVideoToPlay) {
-      setTimeout(() => needUpdate && setVideoIsPlaying(true), 1000);
+      setTimeout(() => needUpdate && setVideoIsPlaying(true), NEED_VIDEO_TO_PLAY_DELAY);
     }
 
     return () => {

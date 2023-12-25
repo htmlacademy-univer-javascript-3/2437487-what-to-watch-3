@@ -1,27 +1,14 @@
-import {formatNumber} from '@components/movie-tabs/movie-tabs.ts';
 import {NotFoundPage} from '@pages/not-found-page/not-found-page.tsx';
 import {useAppSelector} from '../../../hooks';
 import {getFilm} from 'store/reducer/film-reducer/selectors.ts';
+import {formatNumber} from '../../../utils/formatNumber.ts';
+import {getRatingLevel} from '../../../utils/getRatingLevel.ts';
 
 export function Overview() {
   const film = useAppSelector(getFilm);
   if (!film) {
     return <NotFoundPage/>;
   }
-  const getRatingLevel = (rating: number): string => {
-    if (rating < 3) {
-      return 'Bad';
-    } else if (rating < 5) {
-      return 'Normal';
-    } else if (rating < 8) {
-      return 'Good';
-    } else if (rating < 10) {
-      return 'Very good';
-    } else if (rating === 10) {
-      return 'Awesome';
-    }
-    return '';
-  };
   return (
     <>
       <div className="film-rating">

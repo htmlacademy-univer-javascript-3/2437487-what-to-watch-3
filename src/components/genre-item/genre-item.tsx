@@ -1,10 +1,12 @@
 import {useAppDispatch, useAppSelector} from '../../hooks';
-import {changeGenre, getCurrentGenre} from 'store/reducer/data-reducer/selectors.ts';
+import {getCurrentGenre} from 'store/reducer/data-reducer/selectors.ts';
 import {MouseEvent} from 'react';
+import {changeGenre} from 'store/reducer/data-reducer/data-reducer.ts';
 
 type GenreItemProps = {
   genre: string;
 }
+
 export function GenreItem({genre}: GenreItemProps) {
   const currentGenre = useAppSelector(getCurrentGenre);
   const dispatch = useAppDispatch();

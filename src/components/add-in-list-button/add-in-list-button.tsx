@@ -1,6 +1,6 @@
 import {useAppDispatch, useAppSelector} from '../../hooks';
 import {getAuthStatus} from 'store/reducer/user-reducer/selectors.ts';
-import {AuthStatus} from 'types/auth-status.ts';
+import {AuthStatusEnum} from 'types/auth-status.enum.ts';
 import {useNavigate} from 'react-router-dom';
 import {AppRoute} from 'types/app-route.ts';
 import {
@@ -11,7 +11,6 @@ import {
 } from 'store/api-action.ts';
 import {getFavoriteFilms, getPromoFilm} from 'store/reducer/data-reducer/selectors.ts';
 import {useEffect} from 'react';
-// import {useEffect} from 'react';
 
 type AddInListButtonProps = {
   filmId: string;
@@ -34,7 +33,7 @@ export function AddInListButton({filmId, isFavorite}: AddInListButtonProps) {
     };
   }, [dispatch, isFavorite]);
   const handleButtonClick = () => {
-    if (authStatus !== AuthStatus.Auth) {
+    if (authStatus !== AuthStatusEnum.Auth) {
       navigate(AppRoute.SignIn);
     }
     dispatch(postFavoriteFilmAction({filmId: filmId, status: !isFavorite}));

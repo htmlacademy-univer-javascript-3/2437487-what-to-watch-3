@@ -10,7 +10,6 @@ export function GenresList() {
   const films = useAppSelector(getFilms);
   const genres = useMemo(() => getGenres(films), [films]);
 
-
   return (
     <ul className="catalog__genres-list">
       {

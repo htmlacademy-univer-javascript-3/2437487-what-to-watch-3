@@ -4,6 +4,7 @@ import {useAppDispatch, useAppSelector} from '../../hooks';
 import {useEffect, useRef, useState} from 'react';
 import {fetchFilmAction} from 'store/api-action.ts';
 import {getFilm} from 'store/reducer/film-reducer/selectors.ts';
+import {getDurationFormat} from '../../utils/getDurationFormat.ts';
 
 export function PlayerPage() {
   const id = useParams().id || '';
@@ -38,19 +39,6 @@ export function PlayerPage() {
       setProgress(currentTime / durationTime * 100);
       setDuration(durationTime - currentTime);
     }
-  };
-  const getDurationFormat = (seconds: number): string => {
-    const hours = Math.floor(seconds / 3600);
-    const minutes = Math.floor((seconds % 3600) / 60);
-    const remainingSeconds = Math.floor(seconds % 60);
-
-    const formattedHours = String(hours).padStart(2, '0');
-    const formattedMinutes = String(minutes).padStart(2, '0');
-    const formattedSeconds = String(remainingSeconds).padStart(2, '0');
-    if (seconds / 60 / 60 >= 1) {
-      return `-${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
-    }
-    return `-${formattedMinutes}:${formattedSeconds}`;
   };
   const handleFullScreenButtonClick = () => {
     if (videoRef.current?.requestFullscreen) {

@@ -17,6 +17,8 @@ export const MAX_GENRES_COUNT = 10;
 
 export const MINUTES_IN_HOUR = 60;
 
+export const SECONDS_IN_MINUTE = 60;
+
 export const RE_EMAIL = /\S+@\S+\.\S+/;
 
 export const RE_PASSWORD = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;

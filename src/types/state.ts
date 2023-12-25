@@ -1,7 +1,7 @@
 import {Film} from 'types/film.ts';
 import {store} from 'store';
 import {User} from 'types/user.ts';
-import {AuthStatus} from 'types/auth-status.ts';
+import {AuthStatusEnum} from 'types/auth-status.enum.ts';
 import {Review} from 'types/review.ts';
 
 export type State = ReturnType<typeof store.getState>;
@@ -22,7 +22,7 @@ export type DataState = {
 
 export type UserState = {
   user: User | null;
-  authStatus: AuthStatus;
+  authStatus: AuthStatusEnum;
 }
 
 export type FilmState = {

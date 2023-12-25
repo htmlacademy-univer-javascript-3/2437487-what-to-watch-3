@@ -13,11 +13,9 @@ export function FilmCard({film}: FilmCardProps) {
   const [videoIsPlaying, setVideoIsPlaying] = useState(false);
   useEffect(() => {
     let needUpdate = true;
-
     if (needVideoToPlay) {
       setTimeout(() => needUpdate && setVideoIsPlaying(true), NEED_VIDEO_TO_PLAY_DELAY);
     }
-
     return () => {
       needUpdate = false;
     };

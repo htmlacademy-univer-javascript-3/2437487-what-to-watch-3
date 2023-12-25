@@ -4,7 +4,7 @@ import {useRef, useState} from 'react';
 import {useAppDispatch, useAppSelector} from '../../hooks';
 import {getAuthStatus} from 'store/reducer/user-reducer/selectors.ts';
 import {useNavigate} from 'react-router-dom';
-import {AuthStatus} from 'types/auth-status.ts';
+import {AuthStatusEnum} from 'types/auth-status.enum.ts';
 import {AppRoute} from 'types/app-route.ts';
 import {AuthData} from 'types/user.ts';
 import {loginAction} from 'store/api-action.ts';
@@ -20,7 +20,7 @@ export function SignInPage() {
   const [isInvalidPassword, setIsInvalidPassword] = useState(false);
   const [isError, setIsError] = useState(false);
   const dispatch = useAppDispatch();
-  if (authStatus === AuthStatus.Auth) {
+  if (authStatus === AuthStatusEnum.Auth) {
     navigate(AppRoute.Main);
   }
   const checkEmail = (email: string) => {
@@ -33,10 +33,10 @@ export function SignInPage() {
     setIsInvalidPassword(!result);
     return result;
   };
-  const onSubmit = (authData: AuthData) =>
+  const doOnSubmit = (authData: AuthData) =>
     dispatch(loginAction(authData))
       .then(() => {
-        if (authStatus === AuthStatus.Auth) {
+        if (authStatus === AuthStatusEnum.Auth) {
           navigate(AppRoute.Main);
         }
       })
@@ -49,7 +49,7 @@ export function SignInPage() {
       && checkPassword(passwordRef.current.value)) {
       const email = emailRef.current.value;
       const password = passwordRef.current.value;
-      onSubmit({login: email, password});
+      doOnSubmit({login: email, password});
     }
   };
   return (

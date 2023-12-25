@@ -7,12 +7,12 @@ type MovieTabProps = {
   isActive: boolean;
 }
 export function MovieTab({name, onClick, isActive}: MovieTabProps) {
-  const handleClick = () => {
+  const handleDivClick = () => {
     onClick(name);
   };
   return (
     <li className={`film-nav__item ${isActive ? ' film-nav__item--active' : ''}`}>
-      <div onClick={handleClick} className="film-nav__link">{name}</div>
+      <div onClick={handleDivClick} className="film-nav__link">{name}</div>
     </li>
   );
 }

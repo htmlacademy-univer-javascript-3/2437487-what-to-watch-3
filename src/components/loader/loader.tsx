@@ -1,7 +1,7 @@
 import './Loader.scss';
 
 type LoaderProps = {
-  text: string;
+  text?: string;
 }
 export function Loader({text = 'Loading...'}: LoaderProps) {
   return (

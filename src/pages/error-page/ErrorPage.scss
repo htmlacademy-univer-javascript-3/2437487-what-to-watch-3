@@ -1,0 +1,38 @@
+.error__text {
+  color: red;
+  text-align: center;
+  margin-top: 20%;
+  font-size: 2em;
+}
+
+.replay {
+  width: 200px;
+  height: 50px;
+  margin: 20px auto;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.replay--error {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+}
+
+.replay--error:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.error-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

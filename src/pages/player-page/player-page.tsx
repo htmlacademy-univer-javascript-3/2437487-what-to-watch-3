@@ -5,6 +5,8 @@ import {useEffect, useRef, useState} from 'react';
 import {fetchFilmAction} from 'store/api-action.ts';
 import {getFilm} from 'store/reducer/film-reducer/selectors.ts';
 import {getDurationFormat} from '../../utils/getDurationFormat.ts';
+import {getFilmsErrorStatus} from 'store/reducer/data-reducer/selectors.ts';
+import {Loader} from '@components/loader/loader.tsx';
 
 export function PlayerPage() {
   const id = useParams().id || '';
@@ -15,7 +17,7 @@ export function PlayerPage() {
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
   const isMounted = useRef(false);
-
+  const filmErrorStatus = useAppSelector(getFilmsErrorStatus);
   useEffect(() => {
     if (!isMounted.current) {
       if (!film || film.id !== id) {
@@ -46,6 +48,11 @@ export function PlayerPage() {
     }
   };
   if (!film) {
+    return (
+      <Loader text="Loading..."/>
+    );
+  }
+  if (filmErrorStatus) {
     return <NotFoundPage/>;
   }
   return (

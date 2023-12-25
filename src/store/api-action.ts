@@ -31,7 +31,6 @@ export const postFilmReviewAction = createAsyncThunk<void, {filmId: string; comm
   'data/postFilmReview',
   async ({comment, rating, filmId}, { extra: api}) => {
     await api.post<Review>(`comments/${filmId || ''}`, {comment, rating});
-    // return data;
   },
 );
 

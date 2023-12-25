@@ -11,7 +11,12 @@ const initialState: FilmState = {
 export const filmReducer = createSlice({
   name: NameSpace.Film,
   initialState: initialState,
-  reducers: {},
+  reducers: {
+    resetFilmState: (state) => {
+      state.film = null;
+      state.reviews = [];
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(fetchFilmAction.fulfilled, (state, action) => {
@@ -31,3 +36,5 @@ export const filmReducer = createSlice({
       });
   },
 });
+
+export const {resetFilmState} = filmReducer.actions;

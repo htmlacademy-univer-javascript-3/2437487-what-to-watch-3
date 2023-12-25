@@ -1,5 +1,5 @@
 import {MainPage} from '@pages/main-page/main-page.tsx';
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 import {SignInPage} from '@pages/sign-in-page/sign-in-page.tsx';
 import {MyListPage} from '@pages/my-list-page/my-list-page.tsx';
 import {MoviePage} from '@pages/movie-page/movie-page.tsx';
@@ -12,6 +12,8 @@ import {useAppSelector} from '../../hooks';
 import {getAuthCheckedStatus, getAuthStatus} from 'store/reducer/user-reducer/selectors.ts';
 import {Loader} from '@components/loader/loader.tsx';
 import {getFilmsErrorStatus, getFilmsLoadingStatus} from 'store/reducer/data-reducer/selectors.ts';
+import {HelmetProvider} from 'react-helmet-async';
+import {ErrorPage} from '@pages/error-page/error-page.tsx';
 
 
 export function App() {
@@ -26,11 +28,11 @@ export function App() {
   }
   if (hasError) {
     return (
-      <NotFoundPage/>
+      <ErrorPage/>
     );
   }
   return (
-    <BrowserRouter>
+    <HelmetProvider>
       <Routes>
         <Route path={AppRoute.Main}>
           <Route index element={<MainPage/>}/>
@@ -51,6 +53,6 @@ export function App() {
           <Route path={AppRoute.Default} element={<NotFoundPage/>}/>
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HelmetProvider>
   );
 }

@@ -18,9 +18,15 @@ export function MainPage() {
   const films = useAppSelector(getFilteredFilms);
   const dispatch = useAppDispatch();
   useEffect(() => {
-    dispatch(fetchFavoriteFilmsAction());
-    dispatch(fetchPromoFilmAction());
-  }, [dispatch, promoFilm]);
+    let isMounted = true;
+    if (isMounted) {
+      dispatch(fetchFavoriteFilmsAction());
+      dispatch(fetchPromoFilmAction());
+    }
+    return () => {
+      isMounted = false;
+    };
+  }, [dispatch]);
   if (!promoFilm) {
     return <NotFoundPage/>;
   }

@@ -1,4 +1,4 @@
-import {ChangeEvent, FormEvent, Fragment, useRef, useState} from 'react';
+import {ChangeEvent, FormEvent, Fragment, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {useAppDispatch, useAppSelector} from '../../hooks';
 import {getFilm} from 'store/reducer/film-reducer/selectors.ts';
@@ -6,26 +6,24 @@ import {postFilmReviewAction} from 'store/api-action.ts';
 import {NotFoundPage} from '@pages/not-found-page/not-found-page.tsx';
 
 export function ReviewForm() {
-  const commentRef = useRef<HTMLTextAreaElement>(null);
   const navigate = useNavigate();
   const film = useAppSelector(getFilm);
   const [filmRating, setFilmRating] = useState(0);
+  const [comment, setComment] = useState('');
   const dispatch = useAppDispatch();
   if (!film) {
     return <NotFoundPage/>;
   }
-  const doOnSubmit = (rating: number, comment: string) => {
-    dispatch(postFilmReviewAction({filmId: film.id, rating, comment}))
-      .then(() => navigate(`/films/${film.id}`));
-  };
   const handleFormSubmit = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
-    if (filmRating && commentRef.current?.value) {
-      doOnSubmit(filmRating, commentRef.current.value);
-    }
+    dispatch(postFilmReviewAction({filmId: film.id, comment, rating: filmRating}))
+      .then(() => navigate(`/films/${film.id}`));
   };
   const handleInputChange = (evt: ChangeEvent<HTMLInputElement>) => {
     setFilmRating(Number(evt.target.value));
+  };
+  const handleTextAreaChange = (evt: ChangeEvent<HTMLTextAreaElement>) => {
+    setComment(evt.target.value);
   };
   return (
     <div className="add-review">
@@ -57,7 +55,7 @@ export function ReviewForm() {
 
         <div className="add-review__text">
           <textarea
-            ref={commentRef}
+            onChange={handleTextAreaChange}
             className="add-review__textarea"
             name="review-text"
             id="review-text"
@@ -70,7 +68,7 @@ export function ReviewForm() {
             <button
               className="add-review__btn"
               type="submit"
-              disabled={!filmRating || !commentRef.current?.value || commentRef.current?.value.length < 50 || commentRef.current?.value.length > 400}
+              disabled={!filmRating || !comment || comment.length < 50 || comment.length > 400}
             >
               Post
             </button>

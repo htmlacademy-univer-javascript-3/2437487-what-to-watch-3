@@ -12,7 +12,7 @@ import {getSimilarFilms} from 'store/reducer/data-reducer/selectors.ts';
 import {fetchFilmAction, fetchFilmReviewsAction, fetchSimilarFilmsAction} from 'store/api-action.ts';
 import {getFilm} from 'store/reducer/film-reducer/selectors.ts';
 import {getAuthStatus} from 'store/reducer/user-reducer/selectors.ts';
-import {AuthStatus} from 'types/auth-status.ts';
+import {AuthStatusEnum} from 'types/auth-status.enum.ts';
 
 
 export function MoviePage() {
@@ -58,7 +58,7 @@ export function MoviePage() {
               <div className="film-card__buttons">
                 <PlayButton filmId={film.id}/>
                 <AddInListButton filmId={film.id} isFavorite={film.isFavorite}/>
-                {authStatus === AuthStatus.Auth && <Link to={`/films/${film.id}/review/`} className="btn film-card__button">Add review</Link>}
+                {authStatus === AuthStatusEnum.Auth && <Link to={`/films/${film.id}/review/`} className="btn film-card__button">Add review</Link>}
               </div>
             </div>
           </div>

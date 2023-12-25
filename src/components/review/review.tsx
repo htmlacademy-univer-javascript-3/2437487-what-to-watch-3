@@ -1,16 +1,13 @@
 import type {Review} from 'types/review.ts';
 import {formatNumber} from '../../utils/formatNumber.ts';
+import {convertDate, convertDateFormat} from '../../utils/convertDate.ts';
 
 type ReviewProps = {
   review: Review;
 }
 
 export function Review({review}: ReviewProps) {
-  const convertDateFormat = (inputDate: string) => inputDate.split('T')[0];
-  const convertDate = (inputDateStr: string) => {
-    const inputDate = new Date(inputDateStr);
-    return inputDate.toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric'});
-  };
+
   return (
     <div className="review">
       <blockquote className="review__quote">

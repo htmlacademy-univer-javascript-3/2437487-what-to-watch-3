@@ -1,4 +1,4 @@
-import {AuthStatus} from 'types/auth-status.ts';
+import {AuthStatusEnum} from 'types/auth-status.enum.ts';
 import {Link} from 'react-router-dom';
 import {AppRoute} from 'types/app-route.ts';
 import {useAppDispatch, useAppSelector} from '../../hooks';
@@ -15,7 +15,7 @@ export function UserBlock() {
     dispatch(logoutAction());
   };
   return (
-    authStatus === AuthStatus.Auth ?
+    authStatus === AuthStatusEnum.Auth ?
       (
         <ul className="user-block">
           <li className="user-block__item">

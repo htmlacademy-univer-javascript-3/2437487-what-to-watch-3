@@ -8,7 +8,7 @@ type GenreItemProps = {
 export function GenreItem({genre}: GenreItemProps) {
   const currentGenre = useAppSelector(getCurrentGenre);
   const dispatch = useAppDispatch();
-  const handleClick = (evt: MouseEvent<HTMLAnchorElement>, newGenre: string) => {
+  const handleAClick = (evt: MouseEvent<HTMLAnchorElement>, newGenre: string) => {
     evt.preventDefault();
     dispatch(changeGenre(newGenre));
   };
@@ -19,7 +19,7 @@ export function GenreItem({genre}: GenreItemProps) {
     >
       <a
         className="catalog__genres-link"
-        onClick={(evt) => handleClick(evt, genre)}
+        onClick={(evt) => handleAClick(evt, genre)}
       >
         {genre}
       </a>

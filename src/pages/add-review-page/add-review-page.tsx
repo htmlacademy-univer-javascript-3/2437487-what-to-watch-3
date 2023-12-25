@@ -5,7 +5,7 @@ import {NotFoundPage} from '@pages/not-found-page/not-found-page.tsx';
 import {useAppSelector} from '../../hooks';
 import {getFilm} from 'store/reducer/film-reducer/selectors.ts';
 import {getAuthStatus} from 'store/reducer/user-reducer/selectors.ts';
-import {AuthStatus} from 'types/auth-status.ts';
+import {AuthStatusEnum} from 'types/auth-status.enum.ts';
 import {useNavigate} from 'react-router-dom';
 import {AppRoute} from 'types/app-route.ts';
 
@@ -14,7 +14,7 @@ export function AddReviewPage() {
   const film = useAppSelector(getFilm);
   const authStatus = useAppSelector(getAuthStatus);
   const navigate = useNavigate();
-  if (authStatus !== AuthStatus.Auth) {
+  if (authStatus !== AuthStatusEnum.Auth) {
     navigate(AppRoute.SignIn);
   }
   return (

@@ -13,16 +13,15 @@ export function PlayerPage() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
+  const isMounted = useRef(false);
+
   useEffect(() => {
-    let isMounted = true;
-    if (isMounted) {
+    if (!isMounted.current) {
       if (!film || film.id !== id) {
         dispatch(fetchFilmAction(id));
       }
+      isMounted.current = true;
     }
-    return () => {
-      isMounted = false;
-    };
   }, [id, film, dispatch]);
   const handlePlayButtonClick = () => {
     if (isPlaying) {

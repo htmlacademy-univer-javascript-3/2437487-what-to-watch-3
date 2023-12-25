@@ -9,6 +9,7 @@ import {AppRoute} from 'types/app-route.ts';
 import {AuthData} from 'types/user.ts';
 import {loginAction} from 'store/api-action.ts';
 import {FormEvent} from 'react';
+import {RE_EMAIL, RE_PASSWORD} from '../../const.ts';
 
 export function SignInPage() {
   const emailRef = useRef<HTMLInputElement>(null);
@@ -23,14 +24,12 @@ export function SignInPage() {
     navigate(AppRoute.Main);
   }
   const checkEmail = (email: string) => {
-    const reEmail = /\S+@\S+\.\S+/;
-    const result = reEmail.test(email);
+    const result = RE_EMAIL.test(email);
     setIsInvalidEmail(!result);
     return result;
   };
   const checkPassword = (password: string) => {
-    const rePassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-    const result = rePassword.test(password);
+    const result = RE_PASSWORD.test(password);
     setIsInvalidPassword(!result);
     return result;
   };

@@ -17,7 +17,7 @@ export function GenreItem({genre}: GenreItemProps) {
     <li key={genre}
       className={`catalog__genres-item ${genre === currentGenre ? 'catalog__genres-item--active' : ''}`}
     >
-      <a href="/"
+      <a
         className="catalog__genres-link"
         onClick={(evt) => handleClick(evt, genre)}
       >

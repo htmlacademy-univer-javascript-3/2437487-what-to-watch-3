@@ -1,4 +1,4 @@
-import {Dispatch, MouseEvent, SetStateAction} from 'react';
+import {Dispatch, SetStateAction} from 'react';
 import {MovieTabEnum} from 'types/movie-tab.enum.ts';
 
 type MovieTabProps = {
@@ -7,8 +7,7 @@ type MovieTabProps = {
   isActive: boolean;
 }
 export function MovieTab({name, onClick, isActive}: MovieTabProps) {
-  const handleClick = (evt: MouseEvent<HTMLElement>) => {
-    evt.preventDefault();
+  const handleClick = () => {
     onClick(name);
   };
   return (

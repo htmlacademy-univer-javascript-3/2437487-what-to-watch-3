@@ -62,6 +62,7 @@ export const dataReducer = createSlice({
         state.similarFilms = action.payload;
         state.cardCount = action.payload.length > SHOWN_CARDS_COUNT ? SHOWN_CARDS_COUNT : action.payload.length;
         state.isFilmsLoading = false;
+        state.hasError = false;
       })
       .addCase(fetchFilmsAction.rejected, (state) => {
         state.isFilmsLoading = false;
@@ -69,21 +70,33 @@ export const dataReducer = createSlice({
       })
       .addCase(fetchSimilarFilmsAction.fulfilled, (state, action) => {
         state.similarFilms = action.payload;
+        state.hasError = false;
       })
       .addCase(fetchSimilarFilmsAction.rejected, (state) => {
         state.similarFilms = [];
+        state.hasError = true;
       })
       .addCase(fetchFavoriteFilmsAction.fulfilled, (state, action) => {
         state.favoriteFilms = action.payload;
+        state.hasError = false;
       })
       .addCase(fetchFavoriteFilmsAction.rejected, (state) => {
         state.favoriteFilms = [];
+        state.hasError = true;
       })
       .addCase(fetchPromoFilmAction.fulfilled, (state, action) => {
         state.promoFilm = action.payload;
+        state.hasError = false;
       })
       .addCase(fetchPromoFilmAction.rejected, (state) => {
         state.promoFilm = null;
+        state.hasError = true;
       });
   },
 });
+
+export const {
+  changeGenre,
+  increaseCardCount,
+  resetMainPage
+} = dataReducer.actions;

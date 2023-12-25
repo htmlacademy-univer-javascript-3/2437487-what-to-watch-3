@@ -8,33 +8,40 @@ import {MovieTabs} from '@components/movie-tabs/movie-tabs.tsx';
 import {PlayButton} from '@components/play-button/play-button.tsx';
 import {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from '../../hooks';
-import {getSimilarFilms} from 'store/reducer/data-reducer/selectors.ts';
+import {getFilmsErrorStatus, getSimilarFilms} from 'store/reducer/data-reducer/selectors.ts';
 import {fetchFilmAction, fetchFilmReviewsAction, fetchSimilarFilmsAction} from 'store/api-action.ts';
 import {getFilm} from 'store/reducer/film-reducer/selectors.ts';
 import {getAuthStatus} from 'store/reducer/user-reducer/selectors.ts';
 import {AuthStatusEnum} from 'types/auth-status.enum.ts';
+import {resetFilmState} from 'store/reducer/film-reducer/film-reducer.ts';
+import {Loader} from '@components/loader/loader.tsx';
 
 
 export function MoviePage() {
   const id = useParams().id || '';
-  const film = useAppSelector(getFilm);
-  const similarFilms = useAppSelector(getSimilarFilms);
   const dispatch = useAppDispatch();
-  const authStatus = useAppSelector(getAuthStatus);
   useEffect(() => {
     let isMounted = true;
     if (isMounted) {
+      dispatch(resetFilmState());
       dispatch(fetchFilmReviewsAction(id));
       dispatch(fetchFilmAction(id));
-      if (!film || film.id !== id) {
-        dispatch(fetchSimilarFilmsAction(id));
-      }
+      dispatch(fetchSimilarFilmsAction(id));
     }
     return () => {
       isMounted = false;
     };
-  }, [id, film, dispatch]);
+  }, [id, dispatch]);
+  const film = useAppSelector(getFilm);
+  const similarFilms = useAppSelector(getSimilarFilms);
+  const authStatus = useAppSelector(getAuthStatus);
+  const filmErrorStatus = useAppSelector(getFilmsErrorStatus);
   if (!film) {
+    return (
+      <Loader text="Loading..."/>
+    );
+  }
+  if (filmErrorStatus) {
     return <NotFoundPage/>;
   }
   return (

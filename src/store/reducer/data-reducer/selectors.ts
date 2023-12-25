@@ -11,13 +11,3 @@ export const getFavoriteFilms = (state: Pick<State, NameSpace.Data>): Film[] => 
 export const getPromoFilm = (state: Pick<State, NameSpace.Data>): Film | null => state[NameSpace.Data].promoFilm;
 export const getCurrentGenre = (state: Pick<State, NameSpace.Data>): string => state[NameSpace.Data].currentGenre;
 export const getCardCount = (state: Pick<State, NameSpace.Data>): number => state[NameSpace.Data].cardCount;
-export const resetMainPage = () => ({
-  type: `${NameSpace.Data}/resetMainPage`,
-});
-export const changeGenre = (genre: string) => ({
-  type: `${NameSpace.Data}/changeGenre`,
-  payload: genre,
-});
-export const increaseCardCount = () => ({
-  type: `${NameSpace.Data}/increaseCardCount`,
-});

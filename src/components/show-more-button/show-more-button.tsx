@@ -1,6 +1,6 @@
 import {useAppDispatch} from '../../hooks';
-import {increaseCardCount} from 'store/reducer/data-reducer/selectors.ts';
 import {MouseEvent} from 'react';
+import {increaseCardCount} from 'store/reducer/data-reducer/data-reducer.ts';
 
 export function ShowMoreButton() {
   const dispatch = useAppDispatch();

@@ -1,6 +1,6 @@
 import {Header} from '@components/header/header.tsx';
 import {Footer} from '@components/footer/footer.tsx';
-import {useRef, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {useAppDispatch, useAppSelector} from '../../hooks';
 import {getAuthStatus} from 'store/reducer/user-reducer/selectors.ts';
 import {useNavigate} from 'react-router-dom';
@@ -20,9 +20,11 @@ export function SignInPage() {
   const [isInvalidPassword, setIsInvalidPassword] = useState(false);
   const [isError, setIsError] = useState(false);
   const dispatch = useAppDispatch();
-  if (authStatus === AuthStatusEnum.Auth) {
-    navigate(AppRoute.Main);
-  }
+  useEffect(() => {
+    if (authStatus === AuthStatusEnum.Auth) {
+      navigate(AppRoute.Main);
+    }
+  }, [authStatus, navigate]);
   const checkEmail = (email: string) => {
     const result = RE_EMAIL.test(email);
     setIsInvalidEmail(!result);

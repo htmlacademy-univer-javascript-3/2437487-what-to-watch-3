@@ -7,7 +7,7 @@ import {PlayButton} from '@components/play-button/play-button.tsx';
 import {getCardCount, getFilteredFilms, getPromoFilm} from 'store/reducer/data-reducer/selectors.ts';
 import {useAppDispatch, useAppSelector} from '../../hooks';
 import {GenresList} from '@components/genres-list/genres-list.tsx';
-import {fetchFavoriteFilmsAction, fetchPromoFilmAction} from 'store/api-action.ts';
+import {fetchFavoriteFilmsAction} from 'store/api-action.ts';
 import {useEffect} from 'react';
 import {NotFoundPage} from '@pages/not-found-page/not-found-page.tsx';
 
@@ -21,12 +21,11 @@ export function MainPage() {
     let isMounted = true;
     if (isMounted) {
       dispatch(fetchFavoriteFilmsAction());
-      dispatch(fetchPromoFilmAction());
     }
     return () => {
       isMounted = false;
     };
-  }, [dispatch]);
+  }, [dispatch, promoFilm]);
   if (!promoFilm) {
     return <NotFoundPage/>;
   }

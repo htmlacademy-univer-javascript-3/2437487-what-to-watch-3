@@ -1,21 +1,7 @@
-import axios, {AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse} from 'axios';
+import axios, {AxiosInstance, AxiosRequestConfig} from 'axios';
 import {BACKEND_URL, REQUEST_TIMEOUT} from '../const.ts';
 import {getToken} from 'services/token.ts';
-import {StatusCodes} from 'http-status-codes';
-import {toast} from 'react-toastify';
 
-type DetailMessageType = {
-  type: string;
-  message: string;
-}
-
-const StatusCodeMapping: Record<number, boolean> = {
-  [StatusCodes.BAD_REQUEST]: true,
-  [StatusCodes.UNAUTHORIZED]: true,
-  [StatusCodes.NOT_FOUND]: true
-};
-
-const shouldDisplayError = (response: AxiosResponse) => StatusCodeMapping[response.status];
 
 export const createAPI = (): AxiosInstance => {
   const api = axios.create({
@@ -32,17 +18,5 @@ export const createAPI = (): AxiosInstance => {
     }
     return config;
   });
-
-  api.interceptors.response.use(
-    (response) => response,
-    (error: AxiosError<DetailMessageType>) => {
-      if (error.response && shouldDisplayError(error.response)) {
-        const detailMessage = (error.response.data);
-        toast.warn(detailMessage.message);
-      }
-
-      throw error;
-    }
-  );
   return api;
 };

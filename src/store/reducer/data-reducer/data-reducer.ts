@@ -78,11 +78,9 @@ export const dataReducer = createSlice({
       })
       .addCase(fetchFavoriteFilmsAction.fulfilled, (state, action) => {
         state.favoriteFilms = action.payload;
-        state.hasError = false;
       })
       .addCase(fetchFavoriteFilmsAction.rejected, (state) => {
         state.favoriteFilms = [];
-        state.hasError = true;
       })
       .addCase(fetchPromoFilmAction.fulfilled, (state, action) => {
         state.promoFilm = action.payload;

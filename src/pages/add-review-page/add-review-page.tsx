@@ -8,15 +8,18 @@ import {getAuthStatus} from 'store/reducer/user-reducer/selectors.ts';
 import {AuthStatusEnum} from 'types/auth-status.enum.ts';
 import {useNavigate} from 'react-router-dom';
 import {AppRoute} from 'types/app-route.ts';
+import {useEffect} from 'react';
 
 
 export function AddReviewPage() {
   const film = useAppSelector(getFilm);
   const authStatus = useAppSelector(getAuthStatus);
   const navigate = useNavigate();
-  if (authStatus !== AuthStatusEnum.Auth) {
-    navigate(AppRoute.SignIn);
-  }
+  useEffect(() => {
+    if (authStatus !== AuthStatusEnum.Auth) {
+      navigate(AppRoute.SignIn);
+    }
+  }, [authStatus, navigate]);
   return (
     film ?
       (

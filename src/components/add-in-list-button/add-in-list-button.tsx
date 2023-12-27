@@ -25,13 +25,13 @@ export function AddInListButton({filmId, isFavorite}: AddInListButtonProps) {
   const promoFilm = useAppSelector(getPromoFilm);
   useEffect(() => {
     let isMounted = true;
-    if (isMounted) {
+    if (isMounted && authStatus === AuthStatusEnum.Auth) {
       dispatch(fetchFavoriteFilmsAction());
     }
     return () => {
       isMounted = false;
     };
-  }, [dispatch, isFavorite]);
+  }, [dispatch, isFavorite, authStatus]);
   const handleButtonClick = () => {
     if (authStatus !== AuthStatusEnum.Auth) {
       navigate(AppRoute.SignIn);
